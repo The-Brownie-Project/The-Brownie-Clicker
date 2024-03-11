@@ -1,4 +1,4 @@
-# The Brownie Project presents...
+The Brownie Project presents...
 
 <pre>
 ████████╗██╗  ██╗███████╗    ██████╗ ██████╗  ██████╗ ██╗    ██╗███╗   ██╗██╗███████╗
@@ -18,4 +18,4 @@
 The Brownie Clicker
 ===================
 
-# Project 1 at the Wild Code School
+## Project 1 at the Wild Code School

@@ -3,7 +3,14 @@ body {
     font-family: "Bitter", serif;
 }
 
-   
+h2{
+    color: aqua;
+}
+
+img{
+    width: 150px;
+}
+  
 @media screen and (max-width: 1024px), (max-height: 800px) {
 }
 

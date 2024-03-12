@@ -25,3 +25,7 @@ autoClickButton.addEventListener("click", function() {
     alert("You don't have enough Brownie!");
   }
 })
+
+function playAudio(url) {
+    new Audio(url).play();
+  }

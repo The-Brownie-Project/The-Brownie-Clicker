@@ -27,5 +27,7 @@ autoClickButton.addEventListener("click", function() {
 })
 
 function playAudio(url) {
-    new Audio(url).play();
-  }
+  let audio = new Audio(url);
+  audio.volume = 0.01;
+  audio.play();
+}

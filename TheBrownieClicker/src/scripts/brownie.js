@@ -1,4 +1,4 @@
-var brownie = document.querySelector("#brownie");
+var brownie = document.querySelector("#imageBrownie");
 var scoreDisplay = document.querySelector("#score-display");
 var autoClickButton = document.querySelector("#autoclickbutton");
 

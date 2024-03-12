@@ -4,6 +4,7 @@ Bonus:(with sucess)
 - megumin explosion (reset)
 - can it run DOOM 
 - The World and ora ora (Dio/Jotaro) (click fast for max amount of brownie)
+-
 
 Skins : 
 
@@ -11,11 +12,13 @@ Skins :
 - ultrakill
 - devs joke
 - jojo ref
+-
 
 Ajout: 
 
 - Time loss on this clicker
 - lock the clicker at 50h and force the player to touch X50 grass
+- make false ads who redirect on funny webpage
 
 
 

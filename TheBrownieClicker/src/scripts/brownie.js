@@ -20,6 +20,7 @@ autoClickButton.addEventListener("click", function() {
     }, 1000);
     this.classList.add("disabled", "disabled");
     this.textContent = "Auto Click - Purchased";
+    playAudio('src/sound/buy.mp3');
     hasAutoClick = true;
   } else if (score < 50 && hasAutoClick === false) {
     alert("You don't have enough Brownie!");

@@ -2,7 +2,17 @@
 
 /* IT IS IMPORTANT THAT ALL FUNCTIONS AND CLASSES ARE PLACED BELOW */
 
+<<<<<<< HEAD
 import variables from "./variables";
+=======
+import * as vari from "./variables";
+
+/*
+########################################################
+#                        Classes                       #
+########################################################
+*/
+>>>>>>> 8d34b4d (JS:)
 
 class Init{
     constructor(brownies,scoreDisplay,autoClickButton) {
@@ -83,8 +93,23 @@ class DummyItem extends Items {
         super(Clickable,Collectable,Bonus,CanSpawn);
         this.HasBonus = HasBonus;
     }
+<<<<<<< HEAD
 
     ItemProperties(HasBonus){
 
     }
 };
+=======
+    ItemProperties(HasBonus){
+    }
+};
+
+
+
+
+/*
+########################################################
+#                         Functions                    #
+########################################################
+*/
+>>>>>>> 8d34b4d (JS:)

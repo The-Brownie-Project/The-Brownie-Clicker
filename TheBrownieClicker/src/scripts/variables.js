@@ -14,7 +14,7 @@
 
 /* All Int variables */
 
-var Bonus       = Int8Array();
+var Bonus       = Int(0);
 var score       = BigInt(0);
 
 /*###*/
@@ -33,9 +33,18 @@ var UnableOnClick   = Boolean();
 
 /* All non default type variables */
 
+/* HTML */
 var brownie         = document.querySelector("#brownie");
 var scoreDisplay    = document.querySelector("#score-display");
 var autoClickButton = document.querySelector("#autoclickbutton");
 var clickableBonus  = document.querySelector("#clickablebonus")
-    
+/*###*/
+
+/* CSS */
+/* var RootStyle = getComputedStyle(root)
+var navigationBck = RootStyle.getPropertyValue("--navigationBackground")
+
+var bodyStyle = getComputedStyle(body) */
+
+
 /*###*/

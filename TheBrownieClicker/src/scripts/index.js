@@ -1,5 +1,11 @@
-import variables from "./variables";
-import functionalities from "./functionalities"
+import * as vari from "./variables";
+import * as func from "./functionalities"
+
+vari.brownie.addEventListener("click",null, {
+
+})
+
+
 
 brownie.addEventListener("click", function() {
   score++;

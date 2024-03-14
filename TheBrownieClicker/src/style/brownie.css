@@ -1,23 +1,113 @@
-body {
-    background: #000;
-    font-family: "Bitter", serif;
+:root{
+    --debug: 1px dotted gold;
+    --background: #423c35;
+    --statsBackground: #9c7348;
+    --text: #eee;
+    --textReverse: #111;
+
+    --mobileMenuButtonsTextColor: #555;
+    --mobileMenuFirstButtonBackground: lightgreen;
+    --mobileMenuSecondButtonBackground: lightskyblue;
+    --mobileMenuThirdButtonBackground: gold;
+    --mobileMenuFourthButtonBackground: lightsteelblue;
 }
 
-h2{
-    color: aqua;
+*{
+    font-family: "Bitter", serif;
+    color: var(--text);
+}
+
+* button{
+    color: var(--textReverse);
+}
+
+body{
+    background: var(--background);
+}
+
+h1{
+    text-align: center;
+}
+
+.scoreInfos{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+#clickableBrownie{
+    width: 80%;
+    margin: auto;
+    border-radius: 100px;
+    text-align: center;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+#clickableBrownie:hover{
+    cursor: pointer;
 }
 
 #imageBrownie{
-    max-width: 150px;
+    max-width: 200px;
+    margin: auto 0;
 }
 
-h3{
-    display: inline;
-    padding: 1rem;
-    color: aqua;
+#statsList{
+    background: var(--statsBackground);
+    border-top: solid 1px var(--text);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width: auto;
 }
 
-#autoClickButton{
+#statsList ul{
+    list-style: none;
+    margin-left: -40px;
+}
+
+#statsList li{
+    text-align: center;
+}
+
+#statsList li>strong{
+    font-weight: bolder;
+}
+
+#statsList li>span{
+    display: block;
+    font-weight: bolder;
+    font-size: 125%;
+}
+
+#statsList > .mainList{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+    margin-bottom: 0;
+}
+
+.mainList>li{
+    width: calc(100% / 2.2);
+    margin-bottom: 1rem;
+}
+
+.subList>li:not(:first-child){
+    margin-top: 1rem;
+}
+
+
+/*#autoClickButton{
     border-radius: 12px;
     font-size: 20px;
     background-color: blueviolet;
@@ -27,11 +117,7 @@ h3{
     background-color: red;
     color: white;
     border-radius: 12px;
-}
-
-#imageBrownie{
-    max-width: 150px;
-}
+}*/
   
 @media screen and (max-width: 1024px), (max-height: 800px) {
 }

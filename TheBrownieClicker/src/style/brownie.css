@@ -1,0 +1,48 @@
+body {
+    background: #000;
+    font-family: "Bitter", serif;
+}
+
+h2{
+    color: aqua;
+}
+
+#imageBrownie{
+    max-width: 150px;
+}
+
+h3{
+    display: inline;
+    padding: 1rem;
+    color: aqua;
+}
+
+#autoClickButton{
+    border-radius: 12px;
+    font-size: 20px;
+    background-color: blueviolet;
+}
+
+#autoClickButton:hover{
+    background-color: red;
+    color: white;
+    border-radius: 12px;
+}
+
+#imageBrownie{
+    max-width: 150px;
+}
+  
+@media screen and (max-width: 1024px), (max-height: 800px) {
+}
+
+
+    
+@media screen and (max-width: 578px), (max-height: 1024px) {
+
+}
+
+    
+@media screen and (max-width: 320px), (max-height: 480px) {
+    
+}

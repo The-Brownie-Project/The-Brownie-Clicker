@@ -1,5 +1,6 @@
-var brownie = document.querySelector("#imageBrownie");
-var scoreDisplay = document.querySelector("#score-display");
+var brownie = document.querySelector("#clickableBrownie");
+var scoreDisplay = document.querySelector("#scoreDisplay");
+var scoreSpeed = document.querySelector("#speedDisplay");
 var autoClickButton = document.querySelector("#autoclickbutton");
 
 var score = 0;

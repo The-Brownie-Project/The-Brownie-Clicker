@@ -14,16 +14,52 @@
 </head>
     <body>
         <main>
-            <nav>
+            <!-- <nav>
                 <button type="button" class="github" onclick="window.open('https://github.com/The-Brownie-Project');">The Brownie Project Github</button>
-            </nav>
+            </nav> -->
+            <h1>The AllMighty Brownie</h1>
             <section>
-                <h2>The AllMighty Brownie: <span id="score-display">0</span></h2>
-                <div id="clickable-brownie">
-                    <img class="img-responsive" id="imageBrownie" src="src/images/BrownieShortcut.png" onclick="playAudio('src/sound/crunch.mp3')" draggable="false">
+                <div class="scoreInfos">
+                    <h2><span id="scoreDisplay">0</span> Brownies</h2>
+                    <h3><span id="speedDisplay">0</span> B/s</h3>
+                </div>
+                <div id="clickableBrownie">
+                    <img class="responsiveImg" id="imageBrownie" src="src/images/BrownieShortcut.png" onclick="playAudio('src/sound/crunch.mp3')" draggable="false">
                 </div>
             </section>
-            <section>
+            <br/>
+            <section id="statsList">
+                <ul class="mainList">
+                    <li>
+                        <ul class="subList">
+                            <li><strong>Multiplicator: </strong><span id="multiplicatorDisplay">0</span></li>
+                            <li><strong>Resets: </strong><span id="resetsDisplay">0</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="subList">
+                            <li><strong>Clicked this session: </strong><span id="browniesClickedSessionDisplay">0</span></li>
+                            <li><strong>Time lost here: </strong><span id="timeLostDisplay">0</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Brownies per click: </strong><span id="browniesPerClickDisplay">0</span>
+                    </li>
+                    <li>
+                        <strong>Bonus owned: </strong><span id="nbBonusDisplay">0</span>
+                    </li>
+                </ul>
+            </section>
+            <section id="mobileBottomMenu">
+                <button id="menuButton"><span></span></button>
+                <ul>
+                    <li><button id="upgradeButton">Upgrade</button></li>
+                    <li><button id="bonusButton">Bonus</button></li>
+                    <li><button id="skinsButton">Skins</button></li>
+                    <li><button id="optionsButton">Options</button></li>
+                </ul>
+            </section>
+            <!-- <section>
                 <h2>The Store: </h2>
                 <ul>
                     <li>
@@ -36,7 +72,7 @@
                         <button id="bonus">Bonus</button>
                     </li>
                 </ul>
-            </section>
+            </section> -->
         </main>
     </body>
 </html>

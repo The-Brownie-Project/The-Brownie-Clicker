@@ -208,6 +208,62 @@ button#menuButton>span::before{
     color: white;
     border-radius: 12px;
 }*/
+
+#bottomMenu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 345px;
+    width: 100%;
+    background-color: var(--mobileMenuBackground);
+    color: #fff;
+    animation: none;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    margin-bottom: 1rem;
+  }
+
+#bottomMenu>ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+#bottomMenu>p{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonUpgrade{
+    background-color: var(--background);
+    font-size: 15px;
+
+}
+
+  @keyframes fadeIn {
+    0% {
+     opacity: 0;
+     visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+}
+
+    @keyframes fadeOut {
+        0% {
+          opacity: 1;
+          visibility: visible;
+        }
+        100% {
+          visibility: hidden;
+          opacity: 0;
+        }
+    }
   
 @media screen and (max-width: 1024px), (max-height: 800px) {
 }

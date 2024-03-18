@@ -59,6 +59,31 @@
                     <li><button id="optionsButton">Options</button></li>
                 </ul>
             </section>
+                
+            <div id="bottomMenu">
+              <ul>
+                <li><button class="buttonUpgrade">AC</button></li>
+                <li><button class="buttonUpgrade">U2</button></li>
+                <li><button class="buttonUpgrade">U3</button></li>
+              </ul>
+            </div>
+            
+            <script>
+
+                const openMenuBtn = document.getElementById('menuButton');
+                const bottomMenu = document.getElementById('bottomMenu');
+
+                openMenuBtn.addEventListener('click', () => {
+                if (bottomMenu.style.visibility === 'visible') {
+                    bottomMenu.style.animation = '0.3s fadeOut'
+                    bottomMenu.style.visibility = 'hidden'
+
+                } else {
+                    bottomMenu.style.visibility = 'visible'
+                    bottomMenu.style.animation = '0.3s fadeIn'
+                } 
+                });
+            </script>
             <!-- <section>
                 <h2>The Store: </h2>
                 <ul>

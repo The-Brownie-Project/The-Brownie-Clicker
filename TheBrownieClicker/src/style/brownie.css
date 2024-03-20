@@ -1,23 +1,203 @@
-body {
-    background: #000;
-    font-family: "Bitter", serif;
+:root{
+    --debug: 1px dotted gold;
+    --background: #423c35;
+    --statsBackground: #9c7348;
+    --text: #eee;
+    --textReverse: #111;
+    --boxHighlightNone: 0 0 1rem 6px rgba(255,255,255,0);
+
+    --mobileMenuBackground: #999;
+    --mobileMenuButtonsTextColor: #555;
+    --mobileMenuFirstButtonBackground: #a6ec99;
+    --mobileMenuSecondButtonBackground: #97ccf6;
+    --mobileMenuThirdButtonBackground: #e9a85e;
+    --mobileMenuFourthButtonBackground: #f7d6a4;
 }
 
-h2{
-    color: aqua;
+*{
+    font-family: "Bitter", serif;
+    color: var(--text);
+}
+
+* button{
+    color: var(--textReverse);
+}
+
+body{
+    background: var(--background);
+}
+
+h1{
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+    margin-left: -40px;
+}
+
+.scoreInfos{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+#clickableBrownie{
+    width: 80%;
+    margin: auto;
+    border-radius: 100px;
+    text-align: center;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+#clickableBrownie:hover{
+    cursor: pointer;
 }
 
 #imageBrownie{
-    max-width: 150px;
+    max-width: 200px;
+    margin: auto 0;
 }
 
-h3{
-    display: inline;
-    padding: 1rem;
-    color: aqua;
+#statsList{
+    background: var(--statsBackground);
+    border-top: solid 1px var(--text);
+    width: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 0;
 }
 
-#autoClickButton{
+#statsList li{
+    text-align: center;
+}
+
+#statsList li>strong{
+    font-weight: bolder;
+}
+
+#statsList li>span{
+    display: block;
+    font-weight: bolder;
+    font-size: 125%;
+}
+
+#statsList > .mainList{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+    margin-bottom: 0;
+}
+
+.mainList>li{
+    width: calc(100% / 2.2);
+    margin-bottom: 3rem;
+}
+
+.subList>li:not(:first-child){
+    margin-top: 0.5rem;
+}
+
+#mobileBottomMenu{
+    width: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+#mobileBottomMenu button:hover{
+    cursor: pointer;
+}
+
+button#menuButton{
+    background: var(--mobileMenuBackground);
+    border: solid 1px var(--textReverse);
+    border-bottom: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0.5vh 0 0.5vh 0;
+    width: 20vw;
+}
+
+button#menuButton>span::before{
+    content: '▲';
+    color: var(--textReverse);
+}
+
+#mobileBottomMenu ul{
+    background: var(--mobileMenuBackground);
+    margin: 0 0 0 -40px;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#mobileBottomMenu li>button{
+    transition: 0.3 ease-in-out;
+    color: var(--mobileMenuButtonsTextColor);
+    box-shadow: var(--boxHighlightNone);
+    font-weight: bold;
+    font-size: 120%;
+    border-radius: none;
+    border: solid 1px black;
+    width: calc(100vw / 4);
+    height: 5rem;
+}
+
+#mobileBottomMenu li:nth-child(1) button{
+    background: var(--mobileMenuFirstButtonBackground);
+}
+#mobileBottomMenu li:nth-child(1) button.activeHighlight,
+#mobileBottomMenu li:nth-child(1) button:active{
+    box-shadow: 0 0 1rem 6px var(--mobileMenuFirstButtonBackground);
+}
+
+#mobileBottomMenu li:nth-child(2) button{
+    background: var(--mobileMenuSecondButtonBackground);
+}
+#mobileBottomMenu li:nth-child(2) button.activeHighlight,
+#mobileBottomMenu li:nth-child(2) button:active{
+    box-shadow: 0 0 1rem 6px var(--mobileMenuSecondButtonBackground);
+}
+
+#mobileBottomMenu li:nth-child(3) button{
+    background: var(--mobileMenuThirdButtonBackground);
+}
+#mobileBottomMenu li:nth-child(3) button.activeHighlight,
+#mobileBottomMenu li:nth-child(3) button:active{
+    box-shadow: 0 0 1rem 6px var(--mobileMenuThirdButtonBackground);
+}
+
+#mobileBottomMenu li:nth-child(4) button{
+    background: var(--mobileMenuFourthButtonBackground);
+}
+#mobileBottomMenu li:nth-child(4) button.activeHighlight,
+#mobileBottomMenu li:nth-child(4) button:active{
+    box-shadow: 0 0 1rem 6px var(--mobileMenuFourthButtonBackground);
+}
+
+
+/*#autoClickButton{
     border-radius: 12px;
     font-size: 20px;
     background-color: blueviolet;
@@ -27,11 +207,63 @@ h3{
     background-color: red;
     color: white;
     border-radius: 12px;
+}*/
+
+#bottomMenu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 345px;
+    width: 100%;
+    background-color: var(--mobileMenuBackground);
+    color: #fff;
+    animation: none;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    margin-bottom: 1rem;
+  }
+
+#bottomMenu>ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
 }
 
-#imageBrownie{
-    max-width: 150px;
+#bottomMenu>p{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
+
+.buttonUpgrade{
+    background-color: var(--background);
+    font-size: 15px;
+
+}
+
+  @keyframes fadeIn {
+    0% {
+     opacity: 0;
+     visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+}
+
+    @keyframes fadeOut {
+        0% {
+          opacity: 1;
+          visibility: visible;
+        }
+        100% {
+          visibility: hidden;
+          opacity: 0;
+        }
+    }
   
 @media screen and (max-width: 1024px), (max-height: 800px) {
 }

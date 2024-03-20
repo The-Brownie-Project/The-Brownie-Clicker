@@ -113,7 +113,7 @@ ul{
     margin-bottom: 0;
 }
 
-#statsList>.mainList>li{
+#statsList>.mainList>li:not(:last-child){
     width: calc(100% / 2.2);
     margin-bottom: 3rem;
 }
@@ -223,18 +223,18 @@ ul{
 #subMenu {
     background-color: var(--bottomMenuBackground);
     color: var(--text);
-    height: calc(22.55rem - var(--bottomMenuButtonsHeight));
+    height: calc(21.55rem - var(--bottomMenuButtonsHeight));
     width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    margin-bottom: var(--bottomMenuButtonsHeight);
+    padding-bottom: var(--bottomMenuButtonsHeight);
+    margin-bottom: 0;
     z-index: 0;
     visibility: hidden;
-    margin-bottom: 1rem;
     overflow-y: scroll;
-    scrollbar-width: thin;
+    scrollbar-width: 1rem;
 }
 
 #subMenu>ul{

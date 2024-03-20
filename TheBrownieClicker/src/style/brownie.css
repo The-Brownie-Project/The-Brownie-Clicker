@@ -209,7 +209,7 @@ button#menuButton>span::before{
     border-radius: 12px;
 }*/
 
-#bottomMenu {
+#subMenu{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -222,26 +222,32 @@ button#menuButton>span::before{
     animation-fill-mode: forwards;
     visibility: hidden;
     margin-bottom: 1rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
   }
 
-#bottomMenu>ul{
+#subMenu>ul{
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 3rem;
 }
 
-#bottomMenu>p{
+#subMenu>p{
     justify-content: center;
     display: flex;
     flex-direction: column;
 }
 
-.buttonUpgrade{
+#subMenu button{
     background-color: var(--background);
     font-size: 15px;
-
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 16px 16px;
+    margin-left: 10px;
 }
+
 
   @keyframes fadeIn {
     0% {

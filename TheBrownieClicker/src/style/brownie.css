@@ -113,7 +113,7 @@ ul{
     margin-bottom: 0;
 }
 
-#statsList>.mainList>li:not(:last-child){
+#statsList>.mainList>li{
     width: calc(100% / 2.2);
     margin-bottom: 3rem;
 }

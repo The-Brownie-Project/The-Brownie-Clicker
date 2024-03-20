@@ -5,13 +5,17 @@
     --text: #eee;
     --textReverse: #111;
     --boxHighlightNone: 0 0 1rem 6px rgba(255,255,255,0);
+    --templateBorder: solid 1px var(--text);
+    --desktopMenuBackground: #e1cccc;
 
-    --mobileMenuBackground: #999;
-    --mobileMenuButtonsTextColor: #555;
-    --mobileMenuFirstButtonBackground: #a6ec99;
-    --mobileMenuSecondButtonBackground: #97ccf6;
-    --mobileMenuThirdButtonBackground: #e9a85e;
-    --mobileMenuFourthButtonBackground: #f7d6a4;
+    --bottomMenuBackground: #999;
+    --bottomMenuButtonsTextColor: #555;
+    --bottomMenuFirstButtonBackground: #a6ec99;
+    --bottomMenuSecondButtonBackground: #97ccf6;
+    --bottomMenuThirdButtonBackground: #e9a85e;
+    --bottomMenuFourthButtonBackground: #f7d6a4;
+
+    --bottomMenuButtonsHeight: 5rem;
 }
 
 *{
@@ -31,6 +35,14 @@ h1{
     text-align: center;
 }
 
+strong{
+    font-weight: bolder;
+}
+
+em{
+    font-style: italic;
+}
+
 ul{
     list-style: none;
     margin-left: -40px;
@@ -42,9 +54,14 @@ ul{
     text-align: center;
 }
 
+.scoreInfos>hr{
+    margin: 0 auto;
+    width: 25%;
+}
+
 #clickableBrownie{
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     border-radius: 100px;
     text-align: center;
 
@@ -66,7 +83,7 @@ ul{
 
 #statsList{
     background: var(--statsBackground);
-    border-top: solid 1px var(--text);
+    border-top: var(--templateBorder);
     width: auto;
     left: 0;
     right: 0;
@@ -79,38 +96,33 @@ ul{
     text-align: center;
 }
 
-#statsList li>strong{
-    font-weight: bolder;
-}
-
 #statsList li>span{
     display: block;
     font-weight: bolder;
     font-size: 125%;
 }
 
-#statsList > .mainList{
+#statsList>.mainList{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     padding-top: 1rem;
-    padding-bottom: 6rem;
+    padding-bottom: var(--bottomMenuButtonsHeight);
     margin-bottom: 0;
 }
 
-.mainList>li{
+#statsList>.mainList>li{
     width: calc(100% / 2.2);
     margin-bottom: 3rem;
 }
 
-.subList>li:not(:first-child){
-    margin-top: 0.5rem;
+.subList>li:not(:last-child){
+    margin-bottom: 0.5rem;
 }
 
-#mobileBottomMenu{
-    width: auto;
+#bottomMenu{
     left: 0;
     right: 0;
     bottom: 0;
@@ -121,12 +133,12 @@ ul{
     z-index: 1;
 }
 
-#mobileBottomMenu button:hover{
+#bottomMenu button:hover{
     cursor: pointer;
 }
 
-button#menuButton{
-    background: var(--mobileMenuBackground);
+#menuButton{
+    background: var(--bottomMenuBackground);
     border: solid 1px var(--textReverse);
     border-bottom: none;
     border-radius: 0.5rem 0.5rem 0 0;
@@ -134,66 +146,65 @@ button#menuButton{
     width: 20vw;
 }
 
-button#menuButton>span::before{
+#menuButton>span::before{
     content: '▲';
     color: var(--textReverse);
 }
 
-#mobileBottomMenu ul{
-    background: var(--mobileMenuBackground);
+#bottomMenu ul{
+    background: var(--bottomMenuBackground);
     margin: 0 0 0 -40px;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    width: auto;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-#mobileBottomMenu li>button{
+#bottomMenu li>button{
     transition: 0.3 ease-in-out;
-    color: var(--mobileMenuButtonsTextColor);
+    color: var(--bottomMenuButtonsTextColor);
     box-shadow: var(--boxHighlightNone);
     font-weight: bold;
     font-size: 120%;
     border-radius: none;
     border: solid 1px black;
     width: calc(100vw / 4);
-    height: 5rem;
+    height: var(--bottomMenuButtonsHeight);
 }
 
-#mobileBottomMenu li:nth-child(1) button{
-    background: var(--mobileMenuFirstButtonBackground);
+#bottomMenu li:nth-child(1) button{
+    background: var(--bottomMenuFirstButtonBackground);
 }
-#mobileBottomMenu li:nth-child(1) button.activeHighlight,
-#mobileBottomMenu li:nth-child(1) button:active{
-    box-shadow: 0 0 1rem 6px var(--mobileMenuFirstButtonBackground);
-}
-
-#mobileBottomMenu li:nth-child(2) button{
-    background: var(--mobileMenuSecondButtonBackground);
-}
-#mobileBottomMenu li:nth-child(2) button.activeHighlight,
-#mobileBottomMenu li:nth-child(2) button:active{
-    box-shadow: 0 0 1rem 6px var(--mobileMenuSecondButtonBackground);
+#bottomMenu li:nth-child(1) button.activeHighlight,
+#bottomMenu li:nth-child(1) button:active{
+    box-shadow: 0 0 1rem 3px var(--bottomMenuFirstButtonBackground);
 }
 
-#mobileBottomMenu li:nth-child(3) button{
-    background: var(--mobileMenuThirdButtonBackground);
+#bottomMenu li:nth-child(2) button{
+    background: var(--bottomMenuSecondButtonBackground);
 }
-#mobileBottomMenu li:nth-child(3) button.activeHighlight,
-#mobileBottomMenu li:nth-child(3) button:active{
-    box-shadow: 0 0 1rem 6px var(--mobileMenuThirdButtonBackground);
+#bottomMenu li:nth-child(2) button.activeHighlight,
+#bottomMenu li:nth-child(2) button:active{
+    box-shadow: 0 0 1rem 3px var(--bottomMenuSecondButtonBackground);
 }
 
-#mobileBottomMenu li:nth-child(4) button{
-    background: var(--mobileMenuFourthButtonBackground);
+#bottomMenu li:nth-child(3) button{
+    background: var(--bottomMenuThirdButtonBackground);
 }
-#mobileBottomMenu li:nth-child(4) button.activeHighlight,
-#mobileBottomMenu li:nth-child(4) button:active{
-    box-shadow: 0 0 1rem 6px var(--mobileMenuFourthButtonBackground);
+#bottomMenu li:nth-child(3) button.activeHighlight,
+#bottomMenu li:nth-child(3) button:active{
+    box-shadow: 0 0 1rem 3px var(--bottomMenuThirdButtonBackground);
+}
+
+#bottomMenu li:nth-child(4) button{
+    background: var(--bottomMenuFourthButtonBackground);
+}
+#bottomMenu li:nth-child(4) button.activeHighlight,
+#bottomMenu li:nth-child(4) button:active{
+    box-shadow: 0 0 1rem 3px var(--bottomMenuFourthButtonBackground);
 }
 
 
@@ -209,22 +220,22 @@ button#menuButton>span::before{
     border-radius: 12px;
 }*/
 
-#subMenu{
-    position: absolute;
+#subMenu {
+    background-color: var(--bottomMenuBackground);
+    color: var(--text);
+    height: calc(22.55rem - var(--bottomMenuButtonsHeight));
+    width: 100%;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 345px;
-    width: 100%;
-    background-color: var(--mobileMenuBackground);
-    color: #fff;
-    animation: none;
-    animation-fill-mode: forwards;
+    margin-bottom: var(--bottomMenuButtonsHeight);
+    z-index: 0;
     visibility: hidden;
     margin-bottom: 1rem;
     overflow-y: scroll;
     scrollbar-width: thin;
-  }
+}
 
 #subMenu>ul{
     display: flex;
@@ -260,27 +271,198 @@ button#menuButton>span::before{
     }
 }
 
-    @keyframes fadeOut {
-        0% {
-          opacity: 1;
-          visibility: visible;
-        }
-        100% {
-          visibility: hidden;
-          opacity: 0;
-        }
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
     }
-  
-@media screen and (max-width: 1024px), (max-height: 800px) {
+    100% {
+      visibility: hidden;
+      opacity: 0;
+    }
+}
+
+#desktopSecondColumn,
+#fakeAdd,
+#successList{
+    visibility: collapse;
 }
 
 
-    
-@media screen and (max-width: 578px), (max-height: 1024px) {
+@media screen and (min-width: 1200px){
+    main{
+        display: flex;
+        flex-wrap: nowrap;
+    }
 
+    .scoreInfos>hr{
+        width: 50%;
+    }
+
+    #clickableBrownie{
+        width: 50%;
+    }
+
+    #imageBrownie{
+        max-width: 250px;
+    }
+
+    #desktopFirstColumn,
+    #desktopThirdColumn{
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #desktopSecondColumn{
+        visibility: visible;
+        flex: 4;
+        height: 98vh;
+        border-left: var(--templateBorder);
+        border-right: var(--templateBorder);
+    }
+
+    #statsList{
+        height: 28vh;
+        right: auto;
+        position: unset;
+    }
+
+    #statsList>.mainList{
+        width: 30vw;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+
+    #shop{
+        position: relative;
+        height: 50vh;
+        background: var(--bottomMenuBackground);
+        border: var(--templateBorder);
+    }
+
+    #subMenu{
+        top: 0;
+        left: 0;
+        right: 0;
+        height: calc(50vh - var(--bottomMenuButtonsHeight));
+    }
+
+    #bottomMenu{
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #subMenu,
+    #bottomMenu{
+        background: var(--desktopMenuBackground);
+        position: absolute;
+        width: 100%;
+    }
+
+    #bottomMenu ul{
+        width: 100%;
+        margin-left: 0;
+        padding-left: 0;
+        justify-content: unset;
+    }
+    
+    #bottomMenu li>button{
+        width: calc((30vw - 7px) / 3);
+    }
+
+    #subMenu{
+        top: 0;
+        visibility: hidden;
+    }
+
+    #menuButton,
+    #bottomMenu li:nth-child(4){
+        display: none;
+    }
+
+    #fakeAdd{
+        visibility: visible;
+        right: 0;
+        height: 15vh;
+        width: 90%;
+        margin-left: 10%;
+    }
+
+    #successList{
+        visibility: visible;
+        background: var(--desktopMenuBackground);
+        border: var(--templateBorder);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 28vh;
+    }
+
+    #successList>h2{
+        color: var(--bottomMenuButtonsTextColor);
+    }
+
+    #successList>.mainList{
+        width: 90%;
+        height: 20vh;
+        padding-left: 0;
+        margin: 0 auto;
+        overflow-y: scroll;
+    }
+
+    #successList>.mainList>li{
+        color: var(--textReverse);
+        box-shadow: 10px 2px 5px var(--bottomMenuButtonsTextColor);
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 5vh;
+    }
+
+    #successList>.mainList>li:not(:last-child){
+        margin-bottom: 20px;
+    }
+
+    #successList>.mainList>li>img{
+        width: 5vh;
+        height: 100%;
+        margin-right: 20px;
+    }
+
+    #successList>.mainList>li>div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #successList>.mainList>li strong{
+        color: var(--textReverse);
+        font-size: 110%;
+    }
+
+    #successList>.mainList>li em{
+        color: var(--bottomMenuButtonsTextColor);
+        font-size: 85%;
+        width: 100%;
+    }
 }
 
     
-@media screen and (max-width: 320px), (max-height: 480px) {
+@media screen and (min-width: 578px) and (max-width: 1199px){
+    #clickableBrownie{
+        width: 40%;
+    }
+}
+
     
+@media screen and (max-width: 1024px){
+    .scoreInfos>hr{
+        display: none;
+    }
 }

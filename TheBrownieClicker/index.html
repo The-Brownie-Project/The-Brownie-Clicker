@@ -17,65 +17,96 @@
 </head>
     <body>
         <main>
-            <!-- <nav>
-                <button type="button" class="github" onclick="window.open('https://github.com/The-Brownie-Project');">The Brownie Project Github</button>
-            </nav> -->
-            <h1>The AllMighty Brownie</h1>
-            <section>
-                <div class="scoreInfos">
-                    <h2><span id="scoreDisplay">0</span> Brownies</h2>
-                    <h3><span id="speedDisplay">0</span> B/s</h3>
-                </div>
-                <div id="clickableBrownie">
-                    <img class="responsiveImg" id="imageBrownie" src="src/images/BrownieShortcut.png" draggable="false">
-                </div>
-            </section>
-            <br/>
-            <section id="statsList">
-                <ul class="mainList">
-                    <li>
-                        <ul class="subList">
-                            <li><strong>Multiplicator: </strong><span id="multiplicatorDisplay">0</span></li>
-                            <li><strong>Resets: </strong><span id="resetsDisplay">0</span></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul class="subList">
-                            <li><strong>Clicked this session: </strong><span id="browniesClickedSessionDisplay">0</span></li>
-                            <li><strong>Time lost here: </strong><span id="timeLostDisplay">0</span></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>Brownies per click: </strong><span id="browniesPerClickDisplay">0</span>
-                    </li>
-                    <li>
-                        <strong>Bonus owned: </strong><span id="nbBonusDisplay">0</span>
-                    </li>
-                </ul>
-            </section>
-            <section id="mobileBottomMenu">
-                <button id="menuButton"><span></span></button>
-                <ul>
-                    <li><button id="upgradeButton">Upgrade</button></li>
-                    <li><button id="bonusButton">Bonus</button></li>
-                    <li><button id="skinsButton">Skins</button></li>
-                    <li><button id="optionsButton">Options</button></li>
-                </ul>
-            </section>
-                
-            <div id="subMenu">
-            <ul>
-                <li><button id="autoClick">AC</button> Auto Click - <span>0</span> Brownie</li>
-                <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span> Brownie</li>
-                <li><button id="buttonUpgrade3">U3</button></li>
-                <li><button id="buttonUpgrade4">U4</button></li>
-                <li><button id="buttonUpgrade5">U5</button></li>
-            </ul>
+            <div id="desktopFirstColumn">
+                <!-- <nav>
+                    <button type="button" class="github" onclick="window.open('https://github.com/The-Brownie-Project');">The Brownie Project Github</button>
+                </nav> -->
+                <section>
+                    <h1>The AllMighty Brownie</h1>
+                    <div class="scoreInfos">
+                        <h2><span id="scoreDisplay">0</span> Brownies</h2>
+                        <hr/>
+                        <h3><span id="speedDisplay">0</span> B/s</h3>
+                    </div>
+                    <div id="clickableBrownie">
+                        <img class="responsiveImg" id="imageBrownie" src="src/images/BrownieShortcut.png" onclick="playAudio('src/sound/crunch.mp3')" draggable="false">
+                    </div>
+                </section>
+                <br/>
+                <section id="statsList">
+                    <ul class="mainList">
+                        <li>
+                            <ul class="subList">
+                                <li><strong>Multiplicator: </strong><span id="multiplicatorDisplay">0</span></li>
+                                <li><strong>Resets: </strong><span id="resetsDisplay">0</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="subList">
+                                <li><strong>Clicked this session: </strong><span id="browniesClickedSessionDisplay">0</span></li>
+                                <li><strong>Time lost here: </strong><span id="timeLostDisplay">0</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Brownies per click: </strong><span id="browniesPerClickDisplay">0</span>
+                        </li>
+                        <li>
+                            <strong>Bonus owned: </strong><span id="nbBonusDisplay">0</span>
+                        </li>
+                    </ul>
+                </section>
             </div>
+            
+            <div id="desktopSecondColumn">
+                <div id="farms">
+                </div>
+            </div>
+
+            <div id="desktopThirdColumn">
+                <section id="shop">
+                    <div id="subMenu">
+                      <ul>
+                          <li><button id="autoClick">AC</button> Auto Click - <span>0</span> Brownie</li>
+                          <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span> Brownie</li>
+                          <li><button id="buttonUpgrade3">U3</button></li>
+                          <li><button id="buttonUpgrade4">U4</button></li>
+                          <li><button id="buttonUpgrade5">U5</button></li>
+                      </ul>
+                      </ul>
+                    </div>
+                    <div id="bottomMenu">
+                        <button id="menuButton"><span></span></button>
+                        <ul>
+                            <li><button id="upgradeButton">Upgrade</button></li>
+                            <li><button id="bonusButton">Bonus</button></li>
+                            <li><button id="skinsButton">Skins</button></li>
+                            <li><button id="optionsButton">Options</button></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div id="fakeAdd">
+                </div>
+
+                <section id="successList">
+                    <h2>Success</h2>
+                    <ul class="mainList">
+                        <li title="Description explicite 1"><img/>
+                            <div>
+                                <strong>Success 1</strong>
+                                <em>Description 1</em>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+                
             
             <script>
 
                 const openMenuBtn = document.getElementById('menuButton');
+                const bottomMenu = document.getElementById('subMenu');
                 const subMenu = document.getElementById('subMenu');
 
                 openMenuBtn.addEventListener('click', () => {
@@ -104,5 +135,7 @@
                 </ul>
             </section> -->
         </main>
+        <footer>
+        </footer>
     </body>
 </html>

@@ -63,7 +63,7 @@
                 </ul>
             </section>
                 
-            <div id="bottomMenu">
+            <div id="subMenu">
             <ul>
                 <li><button id="autoClick">AC</button> Auto Click - <span>0</span> Brownie</li>
                 <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span> Brownie</li>
@@ -76,16 +76,16 @@
             <script>
 
                 const openMenuBtn = document.getElementById('menuButton');
-                const bottomMenu = document.getElementById('bottomMenu');
+                const subMenu = document.getElementById('subMenu');
 
                 openMenuBtn.addEventListener('click', () => {
-                if (bottomMenu.style.visibility === 'visible') {
-                    bottomMenu.style.animation = '0.3s fadeOut'
-                    bottomMenu.style.visibility = 'hidden'
+                if (subMenu.style.visibility === 'visible') {
+                    subMenu.style.animation = '0.3s fadeOut'
+                    subMenu.style.visibility = 'hidden'
 
                 } else {
-                    bottomMenu.style.visibility = 'visible'
-                    bottomMenu.style.animation = '0.3s fadeIn'
+                    subMenu.style.visibility = 'visible'
+                    subMenu.style.animation = '0.3s fadeIn'
                 } 
                 });
             </script>

@@ -1,11 +1,41 @@
-Bonus:(with sucess)
+Bonus:(with sucess)(multi)
 
-- microwave (multiplicator)
-- oven (same has microwave but longer)
-- megumin explosion (reset)
-- can it run DOOM 
-- The World and ora ora (Dio/Jotaro) (click fast for max amount of brownie)
-- Yeet the Brownie (yeet the brownie but have chance to come back)("You yeeted the brownie,and he comes back to you, good brownie !" or "You yeeted the brownie, but the brownie does not comes back, bad brownie !")
+- Microwave 
+- Four
+- Frigogidaire
+- Chambre froide
+- BBQ
+- Processor
+- sun
+- flamethrower
+- loupe
+- Radiation
+
+Upgrade: (with succes)(B/s)
+
+- Fraise
+- walnuts
+- framboise
+- chantilly
+- crême anglaise
+- nappage
+- chocolate chunk
+- brainties (like smarties but smarter)
+- ketchup
+- Nuclear pasta
+- Trash
+- Cheese
+- Sad hamster
+- BLOOD
+- Poop
+- Salt
+- Baguette
+- Peperoni
+- etoile en sucre
+- Charlie ON THE BROWNIES
+- Kraken kitty
+- deviljho Brownie
+- glasses on brownie
 
 Skins : 
 
@@ -20,6 +50,11 @@ Ajout:
 - Time loss on this clicker
 - lock the clicker at 50h and force the player to touch X50 grass
 - make false ads who redirect on funny webpage
+- megumin explosion (reset)
+- can it run DOOM
+- The World and ora ora (Dio/Jotaro) (click fast for max amount of brownie)
+- Yeet the Brownie (yeet the brownie but have chance to come back)("You yeeted the brownie,and he comes back to you, good brownie !" or "You yeeted the brownie, but the brownie does not comes back, bad brownie !")
+
 
 
 

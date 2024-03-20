@@ -232,7 +232,10 @@ ul{
     margin-bottom: var(--bottomMenuButtonsHeight);
     z-index: 0;
     visibility: hidden;
-  }
+    margin-bottom: 1rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
 
 #subMenu>ul{
     display: flex;
@@ -247,11 +250,15 @@ ul{
     flex-direction: column;
 }
 
-.buttonUpgrade{
+#subMenu button{
     background-color: var(--background);
     font-size: 15px;
-
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 16px 16px;
+    margin-left: 10px;
 }
+
 
   @keyframes fadeIn {
     0% {

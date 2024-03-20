@@ -1,5 +1,5 @@
 /* All the usefull functions the program needs */
-import Init from "./Init";
+import Init from "./Init.js";
 
 /* IT IS IMPORTANT THAT ALL FUNCTIONS AND CLASS ARE PLACED BELOW */
 

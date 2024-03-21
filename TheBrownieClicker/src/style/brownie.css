@@ -264,6 +264,10 @@ ul{
     margin-left: 10px;
 }
 
+#brownieTitle {
+    background-color: var(--bottomMenuButtonsTextColor);
+    border-radius: 50px;
+}
 
   @keyframes fadeIn {
     0% {

@@ -27,7 +27,12 @@ var EHandle = new EventHandler(
   vari.ACHandle,
   vari.multipling,
   vari.pricMul,
-  vari.multiplyingDisplay
+  vari.multiplyingDisplay,
+  vari.openMenuBtn,
+  vari.bottomMenu, 
+  vari.subMenu,
+  vari.userBrowniePerSec,
+  vari.clickSpeed
   );
 
 var DefFunc = new DefaultFunction(

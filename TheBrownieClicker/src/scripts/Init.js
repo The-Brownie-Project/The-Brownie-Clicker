@@ -15,7 +15,12 @@ export default class Init{
         ACHandle,
         multipling,
         priceMul,
-        multiplingDisplay
+        multiplingDisplay,
+        openMenuBtn,
+        bottomMenu, 
+        subMenu,
+        userBrowniePerSec,
+        clickSpeed
         ){
         this.score = score;
         this.brownie = brownie;
@@ -29,5 +34,10 @@ export default class Init{
         this.multipling = multipling;
         this.priceMul = priceMul;
         this.multiplingDisplay = multiplingDisplay;
+        this.openMenuBtn = openMenuBtn;
+        this.bottomMenu = bottomMenu;
+        this.subMenu = subMenu;
+        this.userBrowniePerSec = userBrowniePerSec;
+        this.clickSpeed = clickSpeed;
     }
 };

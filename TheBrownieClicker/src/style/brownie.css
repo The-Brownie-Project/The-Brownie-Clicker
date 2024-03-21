@@ -237,6 +237,11 @@ ul{
     scrollbar-width: 1rem;
 }
 
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
 #subMenu>ul{
     display: flex;
     flex-direction: column;

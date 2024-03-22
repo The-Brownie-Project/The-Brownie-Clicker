@@ -237,6 +237,11 @@ ul{
     scrollbar-width: 1rem;
 }
 
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
 #subMenu>ul{
     display: flex;
     flex-direction: column;
@@ -259,6 +264,10 @@ ul{
     margin-left: 10px;
 }
 
+#brownieTitle {
+    background-color: var(--bottomMenuButtonsTextColor);
+    border-radius: 50px;
+}
 
   @keyframes fadeIn {
     0% {

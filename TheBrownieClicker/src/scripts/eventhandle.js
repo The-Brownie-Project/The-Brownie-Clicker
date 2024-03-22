@@ -55,8 +55,10 @@ export default class EventHandler extends Init{
         that.Multipling = that.Multipling.bind(that)
         that.MenuButton = that.MenuButton.bind(that)
         that.GetUserBrowniePerSec = that.GetUserBrowniePerSec.bind(that)
+        that.UserClicksHandler = that.UserClicksHandler.bind(that)
 
         that.brownie.addEventListener("click",that.Scoring)
+        that.brownie.addEventListener("click",that.UserClicksHandler)
         that.autoClickButton.addEventListener("click",that.AutoClick)
         that.multipling.addEventListener("click",that.Multipling)
         that.openMenuBtn.addEventListener("click",that.MenuButton)
@@ -87,7 +89,6 @@ export default class EventHandler extends Init{
             this.scoreDisplay.innerHTML = this.score;
         }
         finally{
-            this.userBrowniePerSec = this.userBrowniePerSec + 1;
             console.log("called score");
         }
     }
@@ -128,21 +129,26 @@ export default class EventHandler extends Init{
     GetUserBrowniePerSec = () => {
         clearInterval(tempInterval);
         this.timeSpent = this.timeSpent + 1;
-        var tempInterval = setInterval(() => {
-            console.log(this.userBrowniePerSec);
-            this.clickSpeed.innerHTML = this.multiplier*((this.userBrowniePerSec/this.timeSpent) + this.numofAC);
-        },100);
         try{
-            if (this.userBrowniePerSec == this.timeBeforeCPSReset)
-                {
-                    this.clickSpeed.innerHTML = 0;
-                    this.userBrowniePerSec = 0;
-                }
+            if (this.timeBeforeCPSReset == this.userBrowniePerSec)
+            {
+                this.clickSpeed.innerHTML = 0;
+                this.userBrowniePerSec = 0;
+            }
             if (this.userBrowniePerSec == 0){
                 this.timeSpent = 1
             }
         }finally{
+            var tempInterval = setInterval(() => {
+                console.log(this.userBrowniePerSec);
+                this.clickSpeed.innerHTML = Math.floor(this.multiplier*((this.userBrowniePerSec/this.timeSpent) + this.numofAC));
+            },100);
             this.timeBeforeCPSReset = this.userBrowniePerSec;
         }
+    }
+
+    UserClicksHandler = () => {
+        console.log("User Clicked");
+        this.userBrowniePerSec =  this.userBrowniePerSec + 1;
     }
 }

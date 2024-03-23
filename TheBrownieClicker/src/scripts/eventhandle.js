@@ -21,7 +21,8 @@ export default class EventHandler extends Init{
         bottomMenu, 
         subMenu,
         userBrowniePerSec,
-        clickSpeed
+        clickSpeed,
+        browniesClickedSessionDisplay
         ){        
         super(
             brownie,
@@ -40,12 +41,17 @@ export default class EventHandler extends Init{
             bottomMenu, 
             subMenu,
             userBrowniePerSec,
-            clickSpeed
+            clickSpeed,
+            browniesClickedSessionDisplay
             );
+
             var timeSpent = 0
-            this.timeSpent = timeSpent;
             var timeBeforeCPSReset = 0;
+            var userBrownieThisSession = 0;
+            
+            this.timeSpent = timeSpent;
             this.timeBeforeCPSReset = timeBeforeCPSReset;
+            this.userBrownieThisSession = userBrownieThisSession;
 
     /*######*/
 
@@ -67,6 +73,7 @@ export default class EventHandler extends Init{
         that.clickSpeed.innerHTML = setInterval(this.GetUserBrowniePerSec,1000)
         that.scoreDisplay.innerHTML  = this.score;
         that.multiplingDisplay.innerHTML = this.multiplier;
+        that.browniesClickedSessionDisplay.innerHTML = this.userBrownieThisSession;
         
 
         console.log("Event Handler Started");
@@ -150,5 +157,7 @@ export default class EventHandler extends Init{
     UserClicksHandler = () => {
         console.log("User Clicked");
         this.userBrowniePerSec =  this.userBrowniePerSec + 1;
+        this.userBrownieThisSession = this.userBrownieThisSession + (1*this.multiplier*this.bonus);
+        this.browniesClickedSessionDisplay.innerHTML = this.userBrownieThisSession;
     }
 }

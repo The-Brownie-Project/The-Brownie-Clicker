@@ -52,10 +52,11 @@ export var openMenuBtn = document.querySelector('#menuButton');
 export var bottomMenu = document.querySelector('#bottomMenu');
 export var subMenu = document.querySelector('#subMenu');
 
-export var multiplyingDisplay = document.querySelector("#multiplicatorDisplay");
-export var timeLostDisplay    = document.querySelector("#timeLostDisplay");
-export var ACHandle           = window.setInterval(() => {},1000);
-export var Timelost           = window.setInterval(() => {},1000);
+export var multiplyingDisplay            = document.querySelector("#multiplicatorDisplay");
+export var timeLostDisplay               = document.querySelector("#timeLostDisplay");
+export var browniesClickedSessionDisplay = document.querySelector("#browniesClickedSessionDisplay");
+export var ACHandle                      = window.setInterval(() => {},1000);
+export var Timelost                      = window.setInterval(() => {},1000);
 /*###*/
 
 /* CSS */

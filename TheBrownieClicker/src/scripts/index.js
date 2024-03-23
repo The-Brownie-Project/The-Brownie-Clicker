@@ -32,7 +32,8 @@ var EHandle = new EventHandler(
   vari.bottomMenu, 
   vari.subMenu,
   vari.userBrowniePerSec,
-  vari.clickSpeed
+  vari.clickSpeed,
+  vari.browniePerClickDisplay
   );
 
 var DefFunc = new DefaultFunction(

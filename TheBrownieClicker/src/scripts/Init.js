@@ -20,7 +20,8 @@ export default class Init{
         bottomMenu, 
         subMenu,
         userBrowniePerSec,
-        clickSpeed
+        clickSpeed,
+        browniePerClickDisplay
         ){
         this.score = score;
         this.brownie = brownie;
@@ -39,5 +40,6 @@ export default class Init{
         this.subMenu = subMenu;
         this.userBrowniePerSec = userBrowniePerSec;
         this.clickSpeed = clickSpeed;
+        this.browniePerClickDisplay = browniePerClickDisplay;
     }
 };

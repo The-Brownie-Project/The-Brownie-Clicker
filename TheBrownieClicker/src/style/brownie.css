@@ -49,6 +49,11 @@ ul{
     margin-left: -40px;
 }
 
+#brownieTitle {
+    background-color: var(--bottomMenuButtonsTextColor);
+    border-radius: 50px;
+}
+
 .scoreInfos{
     width: 80%;
     margin: auto;

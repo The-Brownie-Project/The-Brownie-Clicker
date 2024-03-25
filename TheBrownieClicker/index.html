@@ -70,12 +70,19 @@
                         <div id="subMenu">
                             <button id="menuButton"><span></span></button>
                             <ul id="upgradesList">
-                                <li><button id="autoClick">AC</button> Auto Click - <span>0</span> Brownie</li>
-                                <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span> Brownie</li>
+                                <li><button id="autoClick">AC</button> Auto Click - <span>0</span></li>
+                                <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span></li>
                                 <li><button id="buttonUpgrade3">U3</button></li>
                                 <li><button id="buttonUpgrade4">U4</button></li>
                                 <li><button id="buttonUpgrade5">U5</button></li>
                             </ul>
+                            <!-- <ul id="bonusList">
+                                <li><button id="buttonBonus1">B1</button><span>0</span></li>
+                                <li><button id="buttonBonus2">B2</button><span>0</span></li>
+                                <li><button id="buttonBonus3">B3</button></li>
+                                <li><button id="buttonBonus4">B4</button></li>
+                                <li><button id="buttonBonus5">B5</button></li>
+                            </ul> -->
                         </div>
 
                         <ul id="tabMenu">
@@ -103,6 +110,35 @@
                     </ul>
                 </section>
             </div>
+
+            <script>
+                const subMenu = document.getElementById('subMenu');
+                const openMenuBtn = document.getElementById('menuButton');
+                
+                const upgradesList = document.getElementById('upgradesList');
+                const bonusList = document.getElementById('bonusList');
+/*                const upgradesList = document.getElementById('upgradesList');
+                const upgradesList = document.getElementById('upgradesList');*/
+
+                upgradesList.style.height = '0px'
+                openMenuBtn.style.border = 'solid 1px var(--textReverse)'
+
+                openMenuBtn.addEventListener('click', () => {
+                    if (window.innerWidth < '1200'){
+                        if (upgradesList.style.height === '0px') {
+                            upgradesList.style.animation = '0.3s deploySubmenu'
+                            upgradesList.style.height = '16.55rem'
+                            openMenuBtn.style.border = 'solid 1px var(--text)'
+
+                        } else {
+                            upgradesList.style.animation = '0.3s retractSubmenu'
+                            upgradesList.style.height = '0px'
+                            openMenuBtn.style.border = 'solid 1px var(--textReverse)'
+                        }
+                    }
+                });
+            </script>
+
         </main>
         <footer>
         </footer>

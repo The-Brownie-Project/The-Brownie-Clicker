@@ -304,13 +304,22 @@ ul{
   }
 }
 
-@keyframes fadeInSubmenu{
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+@keyframes deploySubmenuDesktop{
+  from {
+    height: 0px;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes retractSubmenuDesktop{
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0px;
+  }
 }
 
 /*==============Desktop rules==============*/
@@ -391,18 +400,9 @@ ul{
         width: 100%;
     }
 
-    #subMenu{
-        visibility: hidden;
-    }
-
-    #subMenu,
     #subMenu ul{
         background: var(--desktopMenuBackground);
-    }
-
-    #subMenu ul{
         position: relative;
-        height: 100% !important;
     }
 
     #tabMenu{

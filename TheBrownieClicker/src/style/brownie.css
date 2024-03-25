@@ -1,23 +1,214 @@
-body {
-    background: #000;
-    font-family: "Bitter", serif;
+:root{
+    --debug: 1px dotted gold;
+    --background: #423c35;
+    --statsBackground: #9c7348;
+    --text: #eee;
+    --textReverse: #111;
+    --boxHighlightNone: 0 0 1rem 6px rgba(255,255,255,0);
+    --templateBorder: solid 1px var(--text);
+    --desktopMenuBackground: #e1cccc;
+
+    --bottomMenuBackground: #999;
+    --bottomMenuButtonsTextColor: #555;
+    --bottomMenuFirstButtonBackground: #a6ec99;
+    --bottomMenuSecondButtonBackground: #97ccf6;
+    --bottomMenuThirdButtonBackground: #e9a85e;
+    --bottomMenuFourthButtonBackground: #f7d6a4;
+
+    --bottomMenuButtonsHeight: 5rem;
 }
 
-h2{
-    color: aqua;
+*{
+    font-family: "Bitter", serif;
+    color: var(--text);
+}
+
+* button{
+    color: var(--textReverse);
+}
+
+body{
+    background: var(--background);
+}
+
+h1{
+    text-align: center;
+}
+
+strong{
+    font-weight: bolder;
+}
+
+em{
+    font-style: italic;
+}
+
+ul{
+    list-style: none;
+    margin-left: -40px;
+}
+
+.scoreInfos{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.scoreInfos>hr{
+    margin: 0 auto;
+    width: 25%;
+}
+
+#clickableBrownie{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 100px;
+    text-align: center;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+#clickableBrownie:hover{
+    cursor: pointer;
 }
 
 #imageBrownie{
-    max-width: 150px;
+    max-width: 200px;
+    margin: auto 0;
 }
 
-h3{
-    display: inline;
-    padding: 1rem;
-    color: aqua;
+#statsList{
+    background: var(--statsBackground);
+    border-top: var(--templateBorder);
+    width: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 0;
 }
 
-#autoClickButton{
+#statsList li{
+    text-align: center;
+}
+
+#statsList li>span{
+    display: block;
+    font-weight: bolder;
+    font-size: 125%;
+}
+
+#statsList>.mainList{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    padding-bottom: var(--bottomMenuButtonsHeight);
+    margin-bottom: 0;
+}
+
+#statsList>.mainList>li{
+    width: calc(100% / 2.2);
+    margin-bottom: 3rem;
+}
+
+.subList>li:not(:last-child){
+    margin-bottom: 0.5rem;
+}
+
+#bottomMenu{
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+#bottomMenu button:hover{
+    cursor: pointer;
+}
+
+#menuButton{
+    background: var(--bottomMenuBackground);
+    border: solid 1px var(--textReverse);
+    border-bottom: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0.5vh 0 0.5vh 0;
+    width: 20vw;
+}
+
+#menuButton>span::before{
+    content: '▲';
+    color: var(--textReverse);
+}
+
+#bottomMenu ul{
+    background: var(--bottomMenuBackground);
+    margin: 0 0 0 -40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#bottomMenu li>button{
+    transition: 0.3 ease-in-out;
+    color: var(--bottomMenuButtonsTextColor);
+    box-shadow: var(--boxHighlightNone);
+    font-weight: bold;
+    font-size: 120%;
+    border-radius: none;
+    border: solid 1px black;
+    width: calc(100vw / 4);
+    height: var(--bottomMenuButtonsHeight);
+}
+
+#bottomMenu li:nth-child(1) button{
+    background: var(--bottomMenuFirstButtonBackground);
+}
+#bottomMenu li:nth-child(1) button.activeHighlight,
+#bottomMenu li:nth-child(1) button:active{
+    box-shadow: 0 0 1rem 3px var(--bottomMenuFirstButtonBackground);
+}
+
+#bottomMenu li:nth-child(2) button{
+    background: var(--bottomMenuSecondButtonBackground);
+}
+#bottomMenu li:nth-child(2) button.activeHighlight,
+#bottomMenu li:nth-child(2) button:active{
+    box-shadow: 0 0 1rem 3px var(--bottomMenuSecondButtonBackground);
+}
+
+#bottomMenu li:nth-child(3) button{
+    background: var(--bottomMenuThirdButtonBackground);
+}
+#bottomMenu li:nth-child(3) button.activeHighlight,
+#bottomMenu li:nth-child(3) button:active{
+    box-shadow: 0 0 1rem 3px var(--bottomMenuThirdButtonBackground);
+}
+
+#bottomMenu li:nth-child(4) button{
+    background: var(--bottomMenuFourthButtonBackground);
+}
+#bottomMenu li:nth-child(4) button.activeHighlight,
+#bottomMenu li:nth-child(4) button:active{
+    box-shadow: 0 0 1rem 3px var(--bottomMenuFourthButtonBackground);
+}
+
+
+/*#autoClickButton{
     border-radius: 12px;
     font-size: 20px;
     background-color: blueviolet;
@@ -27,22 +218,260 @@ h3{
     background-color: red;
     color: white;
     border-radius: 12px;
+}*/
+
+#subMenu {
+    background-color: var(--bottomMenuBackground);
+    color: var(--text);
+    height: calc(21.55rem - var(--bottomMenuButtonsHeight));
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: var(--bottomMenuButtonsHeight);
+    margin-bottom: 0;
+    z-index: 0;
+    visibility: hidden;
+    overflow-y: scroll;
+    scrollbar-width: 1rem;
 }
 
-#imageBrownie{
-    max-width: 150px;
-}
-  
-@media screen and (max-width: 1024px), (max-height: 800px) {
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
 }
 
+#subMenu>ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+#subMenu>p{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#subMenu button{
+    background-color: var(--background);
+    font-size: 15px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 16px 16px;
+    margin-left: 10px;
+}
+
+#brownieTitle {
+    background-color: var(--bottomMenuButtonsTextColor);
+    border-radius: 50px;
+}
+
+  @keyframes fadeIn {
+    0% {
+     opacity: 0;
+     visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      visibility: hidden;
+      opacity: 0;
+    }
+}
+
+#desktopSecondColumn,
+#fakeAdd,
+#successList{
+    visibility: collapse;
+}
+
+
+@media screen and (min-width: 1200px){
+    main{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .scoreInfos>hr{
+        width: 50%;
+    }
+
+    #clickableBrownie{
+        width: 50%;
+    }
+
+    #imageBrownie{
+        max-width: 250px;
+    }
+
+    #desktopFirstColumn,
+    #desktopThirdColumn{
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #desktopSecondColumn{
+        visibility: visible;
+        flex: 4;
+        height: 98vh;
+        border-left: var(--templateBorder);
+        border-right: var(--templateBorder);
+    }
+
+    #statsList{
+        height: 28vh;
+        right: auto;
+        position: unset;
+    }
+
+    #statsList>.mainList{
+        width: 30vw;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+
+    #shop{
+        position: relative;
+        height: 50vh;
+        background: var(--bottomMenuBackground);
+        border: var(--templateBorder);
+    }
+
+    #subMenu{
+        top: 0;
+        left: 0;
+        right: 0;
+        height: calc(50vh - var(--bottomMenuButtonsHeight));
+    }
+
+    #bottomMenu{
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #subMenu,
+    #bottomMenu{
+        background: var(--desktopMenuBackground);
+        position: absolute;
+        width: 100%;
+    }
+
+    #bottomMenu ul{
+        width: 100%;
+        margin-left: 0;
+        padding-left: 0;
+        justify-content: unset;
+    }
+    
+    #bottomMenu li>button{
+        width: calc((30vw - 7px) / 3);
+    }
+
+    #subMenu{
+        top: 0;
+        visibility: hidden;
+    }
+
+    #menuButton,
+    #bottomMenu li:nth-child(4){
+        display: none;
+    }
+
+    #fakeAdd{
+        visibility: visible;
+        right: 0;
+        height: 15vh;
+        width: 90%;
+        margin-left: 10%;
+    }
+
+    #successList{
+        visibility: visible;
+        background: var(--desktopMenuBackground);
+        border: var(--templateBorder);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 28vh;
+    }
+
+    #successList>h2{
+        color: var(--bottomMenuButtonsTextColor);
+    }
+
+    #successList>.mainList{
+        width: 90%;
+        height: 20vh;
+        padding-left: 0;
+        margin: 0 auto;
+        overflow-y: scroll;
+    }
+
+    #successList>.mainList>li{
+        color: var(--textReverse);
+        box-shadow: 10px 2px 5px var(--bottomMenuButtonsTextColor);
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 5vh;
+    }
+
+    #successList>.mainList>li:not(:last-child){
+        margin-bottom: 20px;
+    }
+
+    #successList>.mainList>li>img{
+        width: 5vh;
+        height: 100%;
+        margin-right: 20px;
+    }
+
+    #successList>.mainList>li>div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #successList>.mainList>li strong{
+        color: var(--textReverse);
+        font-size: 110%;
+    }
+
+    #successList>.mainList>li em{
+        color: var(--bottomMenuButtonsTextColor);
+        font-size: 85%;
+        width: 100%;
+    }
+}
 
     
-@media screen and (max-width: 578px), (max-height: 1024px) {
-
+@media screen and (min-width: 578px) and (max-width: 1199px){
+    #clickableBrownie{
+        width: 40%;
+    }
 }
 
     
-@media screen and (max-width: 320px), (max-height: 480px) {
-    
+@media screen and (max-width: 1024px){
+    .scoreInfos>hr{
+        display: none;
+    }
 }

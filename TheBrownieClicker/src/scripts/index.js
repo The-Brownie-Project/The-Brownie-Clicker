@@ -27,7 +27,18 @@ var EHandle = new EventHandler(
   vari.ACHandle,
   vari.multipling,
   vari.pricMul,
-  vari.multiplyingDisplay
+  vari.multiplyingDisplay,
+  vari.openMenuBtn,
+  vari.bottomMenu, 
+  vari.subMenu,
+  vari.userBrowniePerSec,
+  vari.clickSpeed,
+  vari.browniesClickedSessionDisplay,
+  vari.usrClickThisSession,
+  vari.amountOfReset,
+  vari.resetButton,
+  vari.resetDisplay,
+  vari.browniesPerClickDisplay
   );
 
 var DefFunc = new DefaultFunction(
@@ -41,9 +52,3 @@ var DefFunc = new DefaultFunction(
 
 EHandle
 DefFunc
-
-/* function playAudio(url) {
-  let audio = new Audio(url);
-  audio.volume = 0.01;
-  audio.play();
-} */

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -14,79 +14,203 @@
     <script type="module" src="src/scripts/variables.js"></script>
     <script type="module" src="src/scripts/basicfunctions.js"></script> 
     <script type="module" src="src/scripts/index.js"></script>
+
 </head>
     <body>
         <main>
-            <!-- <nav>
-                <button type="button" class="github" onclick="window.open('https://github.com/The-Brownie-Project');">The Brownie Project Github</button>
-            </nav> -->
-            <h1>The AllMighty Brownie</h1>
-            <section>
-                <div class="scoreInfos">
-                    <h2><span id="scoreDisplay">0</span> Brownies</h2>
-                    <h3><span id="speedDisplay">0</span> B/s</h3>
-                </div>
-                <div id="clickableBrownie">
-                    <img class="responsiveImg" id="imageBrownie" src="src/images/BrownieShortcut.png" draggable="false">
-                </div>
-            </section>
-            <br/>
-            <section id="statsList">
-                <ul class="mainList">
-                    <li>
-                        <ul class="subList">
-                            <li><strong>Multiplicator: </strong><span id="multiplicatorDisplay">0</span></li>
-                            <li><strong>Resets: </strong><span id="resetsDisplay">0</span></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul class="subList">
-                            <li><strong>Clicked this session: </strong><span id="browniesClickedSessionDisplay">0</span></li>
-                            <li><strong>Time lost here: </strong><span id="timeLostDisplay">0</span></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>Brownies per click: </strong><span id="browniesPerClickDisplay">0</span>
-                    </li>
-                    <li>
-                        <strong>Bonus owned: </strong><span id="nbBonusDisplay">0</span>
-                    </li>
-                </ul>
-            </section>
-            <section id="mobileBottomMenu">
-                <button id="menuButton"><span></span></button>
-                <ul>
-                    <li><button id="upgradeButton">Upgrade</button></li>
-                    <li><button id="bonusButton">Bonus</button></li>
-                    <li><button id="skinsButton">Skins</button></li>
-                    <li><button id="optionsButton">Options</button></li>
-                </ul>
-            </section>
-                
-            <div id="bottomMenu">
-            <ul>
-                <li><button id="autoClick">AC</button></li>
-                <li><button id="multiplying">U2</button></li>
-                <li><button id="buttonUpgrade">U3</button></li>
-            </ul>
+            <div id="desktopFirstColumn">
+                <!-- <nav>
+                    <button type="button" class="github" onclick="window.open('https://github.com/The-Brownie-Project');">The Brownie Project Github</button>
+                </nav> -->
+                <section>
+                    <h1 id="brownieTitle">The AllMighty Brownie</h1>
+                    <div class="scoreInfos" src="./src/sound/crunch.mp3">
+                        <h2><span id="scoreDisplay">0</span> Brownies</h2>
+                        <hr/>
+                        <h3><span id="speedDisplay">0</span> B/s</h3>
+                    </div>
+                    <div id="clickableBrownie">
+<!--                         onclick="audio.play() "<script type="text/javascript">let audio = new Audio('./src/sound/crunch.mp3');</script> -->
+                        <!-- Uncaught (in promise) DOMException: The element has no supported sources. || waiting for fix -->
+                        <img class="responsiveImg" id="imageBrownie" src="src/images/BrownieShortcut.png" draggable="false">
+                    </div>
+                </section>
+                <br/>
+                <section id="statsList">
+                    <ul class="mainList">
+                        <li>
+                            <ul class="subList">
+                                <li><strong>Multiplicator: </strong><span id="multiplicatorDisplay">0</span></li>
+                                <li><strong>Resets: </strong><span id="resetDisplay">0</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="subList">
+                                <li><strong>Clicked this session: </strong><span id="browniesClickedSessionDisplay">0</span></li>
+                                <li><strong>Time lost here: </strong><span id="timeLostDisplay">0</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Brownies per click: </strong><span id="browniesPerClickDisplay">0</span>
+                        </li>
+                        <li>
+                            <strong>Bonus owned: </strong><span id="nbBonusDisplay">0</span>
+                        </li>
+                    </ul>
+                </section>
             </div>
             
-            <script>
+            <div id="desktopSecondColumn">
+                <div id="farms">
+                </div>
+            </div>
 
-                const openMenuBtn = document.getElementById('menuButton');
-                const bottomMenu = document.getElementById('bottomMenu');
+            <div id="desktopThirdColumn">
+                <section id="shop">
+                    <div id="subMenu">
+                    <ul>
+                        <li><button id="autoClick">AC</button> Auto Click - <span>0</span> Brownie</li>
+                        <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span> Brownie</li>
+                        <li><button id="resetButton">U3</button></li>
+                        <li><button id="buttonUpgrade4">U4</button></li>
+                        <li><button id="buttonUpgrade5">U5</button></li>
+                    </ul>
+                    </ul>
+                    </div>
+                    <div id="bottomMenu">
+                        <button id="menuButton"><span></span></button>
+                        <ul>
+                            <li><button id="upgradeButton">Upgrade</button></li>
+                            <li><button id="bonusButton">Bonus</button></li>
+                            <li><button id="skinsButton">Skins</button></li>
+                            <li><button id="optionsButton">Options</button></li>
+                        </ul>
+                    </div>
+                </section>
 
-                openMenuBtn.addEventListener('click', () => {
-                if (bottomMenu.style.visibility === 'visible') {
-                    bottomMenu.style.animation = '0.3s fadeOut'
-                    bottomMenu.style.visibility = 'hidden'
+                <div id="fakeAdd">
+                    <a href="https://github.com/The-Brownie-Project" target="_blank"><img
+                        src="src/images/601c0ca349b3c229917b8b16612acf6a.jpg" alt="Shrek"></a>
+                </div>
 
-                } else {
-                    bottomMenu.style.visibility = 'visible'
-                    bottomMenu.style.animation = '0.3s fadeIn'
-                } 
-                });
-            </script>
+                <section id="successList">
+                    <h2>Success</h2>
+                    <ul class="mainList">
+                    <li title="Get one brownie"><img />
+                        <div>
+                            <strong>1ST BROWNIE</strong>
+                            <em>Your first brownie of a long collection</em>
+                        </div>
+                    </li>
+
+                    <li title="Unlock fisrt autoclick"><img />
+                        <div>
+                            <strong>THEY STOLE OUR WORK</strong>
+                            <em>hire you're first Brownie Maker</em>
+                        </div>
+
+                    </li>
+                    <li title="Unlock first upgrade"><img />
+                        <div>
+                            <strong>LEVEL UP !</strong>
+                            <em>Unlock you're first Upgrade</em>
+                        </div>
+                    </li>
+
+                    <li title="Have 1 hour in-game"><img />
+                        <div>
+                            <strong>ONE HOUR LATER</strong>
+                            <em>Seriously ?! 1 hour ?! Go touch some grass please !</em>
+                        </div>
+                    </li>
+
+                    <li title="Get 9001 brownie"><img />
+                        <div>
+                            <strong>IT'S OVER NINE THOUSAND</strong>
+                            <em>Get 9001 Brownie to become a super sayian</em>
+                        </div>
+                    </li>
+
+                    <li title="Unlock the first skins"><img />
+                        <div>
+                            <strong>NICE DRIP BRO</strong>
+                            <em>Get you're first skin because you have the style in you</em>
+                        </div>
+                    </li>
+
+                    <li title="Get the first reset"><img />
+                        <div>
+                            <strong>ANOTHER ONE BITES THE DUST</strong>
+                            <em>Nuke the brownie and return to the past</em>
+                        </div>
+                    </li>
+
+                    <li title="Toggle the light mode"><img />
+                        <div>
+                            <strong>NOT THE LIGHT !</strong>
+                            <em>AHHHHHHHHHHHHHHHHHHHHHHHHHH!</em>
+                        </div>
+                    </li>
+
+                    <li title="Change language to french"><img />
+                        <div>
+                            <strong>OMELETTE DU FROMAGE</strong>
+                            <em>Baguette or not baguette that is the question</em>
+                        </div>
+                    </li>
+
+                    <li title="Get 1M brownie per second"><img />
+                        <div>
+                            <strong>FLY ME TO THE MOON</strong>
+                            <em>And let me play among the star</em>
+                        </div>
+                    </li>
+
+                    <li title="Toggle the sound"><img />
+                        <div>
+                            <strong>*SNAP NOISES*</strong>
+                            <em>Mister stark i'm not feel so good</em>
+                        </div>
+                    </li>
+
+                    <li title="Share stats"><img />
+                        <div>
+                            <strong>I HAVE THE HIGH GROUND</strong>
+                            <em>It's over anakin</em>
+                        </div>
+                    </li>
+
+                    <li title="Click on the fake pub"><img />
+                        <div>
+                            <strong>HA GOTCHA</strong>
+                            <em>I trick you to think i thinked of somthing but NO</em>
+                        </div>
+                    </li>
+
+                    <li title="Toggle the succes popup"><img />
+                        <div>
+                            <strong>SUCCESCEPTION</strong>
+                            <em>A succes into a succes into a success into a succes...</em>
+                        </div>
+                    </li>
+
+                    <li title="Spend 100h in-game"><img />
+                        <div>
+                            <strong>CRAZY ???</strong>
+                            <em>Crazy ? I was crazy once !</em>
+                        </div>
+                    </li>
+
+                    <li title="Take the kraken kitty skins"><img />
+                        <div>
+                            <strong>A KRAKEN KITTY ON A BROWNIE ?</strong>
+                            <em>He is so cute UwU</em>
+                        </div>
+                    </li>
+                        
+                    </ul>
+                </section>
+            </div>
             <!-- <section>
                 <h2>The Store: </h2>
                 <ul>
@@ -102,5 +226,7 @@
                 </ul>
             </section> -->
         </main>
+        <footer>
+        </footer>
     </body>
 </html>

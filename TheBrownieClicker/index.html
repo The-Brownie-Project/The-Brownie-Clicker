@@ -64,24 +64,27 @@
 
             <div id="desktopThirdColumn">
                 <section id="shop">
-                    <div id="subMenu">
-                      <ul>
-                          <li><button id="autoClick">AC</button> Auto Click - <span>0</span> Brownie</li>
-                          <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span> Brownie</li>
-                          <li><button id="buttonUpgrade3">U3</button></li>
-                          <li><button id="buttonUpgrade4">U4</button></li>
-                          <li><button id="buttonUpgrade5">U5</button></li>
-                      </ul>
-                      </ul>
-                    </div>
+                    <!-- <h2>Shop</h2> -->
                     <div id="bottomMenu">
-                        <button id="menuButton"><span></span></button>
-                        <ul>
+                        
+                        <div id="subMenu">
+                            <button id="menuButton"><span></span></button>
+                            <ul id="upgradesList">
+                                <li><button id="autoClick">AC</button> Auto Click - <span>0</span> Brownie</li>
+                                <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span> Brownie</li>
+                                <li><button id="buttonUpgrade3">U3</button></li>
+                                <li><button id="buttonUpgrade4">U4</button></li>
+                                <li><button id="buttonUpgrade5">U5</button></li>
+                            </ul>
+                        </div>
+
+                        <ul id="tabMenu">
                             <li><button id="upgradeButton">Upgrade</button></li>
                             <li><button id="bonusButton">Bonus</button></li>
                             <li><button id="skinsButton">Skins</button></li>
                             <li><button id="optionsButton">Options</button></li>
                         </ul>
+
                     </div>
                 </section>
 
@@ -100,40 +103,6 @@
                     </ul>
                 </section>
             </div>
-
-                
-            
-            <script>
-
-                const openMenuBtn = document.getElementById('menuButton');
-                const bottomMenu = document.getElementById('subMenu');
-                const subMenu = document.getElementById('subMenu');
-
-                openMenuBtn.addEventListener('click', () => {
-                if (subMenu.style.visibility === 'visible') {
-                    subMenu.style.animation = '0.3s fadeOut'
-                    subMenu.style.visibility = 'hidden'
-
-                } else {
-                    subMenu.style.visibility = 'visible'
-                    subMenu.style.animation = '0.3s fadeIn'
-                } 
-                });
-            </script>
-            <!-- <section>
-                <h2>The Store: </h2>
-                <ul>
-                    <li>
-                        <button id="autoclickbutton">AutoClick - 50 Brownie</button>
-                    </li>
-                    <li>
-                        <button id="multiplicateur">Multiplicateur</button>
-                    </li>
-                    <li>
-                        <button id="bonus">Bonus</button>
-                    </li>
-                </ul>
-            </section> -->
         </main>
         <footer>
         </footer>

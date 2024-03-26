@@ -475,6 +475,55 @@ ul#optionsList{
     }
 
 
+    #desktopOptions{
+        position: absolute;
+        right: 32vw;
+        bottom: 0;
+    }
+
+    #desktopOptions button{
+        background: var(--background);
+        color: var(--text);
+        transition: ease-in-out 0.2s;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 50px;
+        list-style-type: none;
+    }
+
+    #desktopOptions ul{
+        background: var(--desktopMenuBackground);
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 70px;
+        padding: 5px 20px;
+        margin-top: 0;
+        margin-left: 0;
+        transition: max-height 0.5s ease-out;
+    }
+
+    #desktopOptions ul>li{
+        text-align: center;
+        width: 60px;
+    }
+
+    #desktopOptions ul button{
+        border: none;
+        height: 65px;
+        width: 65px;
+    }
+
+    #desktopOptions ul button:hover{
+        cursor: pointer;
+    }
+
+    #desktopOptions ul button:active{
+        transform: scale(0.95);
+    }
+
+
     #shop{
         background: var(--bottomMenuBackground);
         position: relative;
@@ -546,7 +595,9 @@ ul#optionsList{
     }
 
     #successList>.mainList{
-        display: block;
+        display: flex;
+        gap: 20px;
+        flex-direction: column-reverse;
         width: 90%;
         height: 20vh;
         padding-left: 0;
@@ -555,21 +606,17 @@ ul#optionsList{
     }
 
     #successList>.mainList>li{
-        color: var(--textReverse);
         box-shadow: 10px 2px 5px var(--bottomMenuButtonsTextColor);
         display: flex;
         align-items: center;
+        padding: 5px 0;
         width: auto;
         height: 5vh;
     }
 
-    #successList>.mainList>li:not(:last-child){
-        margin-bottom: 20px;
-    }
-
     #successList>.mainList>li>img{
         width: 5vh;
-        height: 100%;
+        height: 5vh;
         margin-right: 20px;
     }
 
@@ -580,6 +627,7 @@ ul#optionsList{
 
     #successList>.mainList>li strong{
         color: var(--textReverse);
+/*        text-transform: uppercase;*/
         font-size: 110%;
     }
 

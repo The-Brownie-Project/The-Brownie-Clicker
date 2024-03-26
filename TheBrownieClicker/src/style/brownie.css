@@ -230,6 +230,10 @@ ul{
     flex-direction: column;
 }
 
+#successList>.mainList{
+    display: none;
+}
+
 /*==============Mobile menu==============*/
 
 #tabMenu{
@@ -332,10 +336,13 @@ ul{
 /*==============Desktop rules==============*/
 
 
-#desktopSecondColumn,
-#fakeAdd,
 #successList{
     visibility: collapse;
+}
+
+#fakeAdd,
+#desktopSecondColumn{
+    display: none;
 }
 
 
@@ -366,6 +373,7 @@ ul{
     }
 
     #desktopSecondColumn{
+        display: block;
         visibility: visible;
         flex: 4;
         height: 98vh;
@@ -430,7 +438,9 @@ ul{
     }
 
     #fakeAdd{
+        display: block;
         visibility: visible;
+        object-fit: contain;
         right: 0;
         height: 15vh;
         width: 90%;
@@ -455,11 +465,12 @@ ul{
     }
 
     #successList>.mainList{
+        display: block;
         width: 90%;
         height: 20vh;
         padding-left: 0;
         margin: 0 auto;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     #successList>.mainList>li{

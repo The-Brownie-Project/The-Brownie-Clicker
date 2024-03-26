@@ -29,7 +29,8 @@
 }
 
 body{
-    background: var(--background);
+    background: var(--textReverse);
+    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
 }
 
 h1{
@@ -93,7 +94,7 @@ ul{
 }
 
 #statsList{
-    background: var(--statsBackground);
+    background-image: url(https://images6.alphacoders.com/379/thumb-1920-379569.png);
     border-top: var(--templateBorder);
     width: auto;
     left: 0;
@@ -347,6 +348,10 @@ ul{
 
 
 @media screen and (min-width: 1200px){
+
+    body{
+        background: var(--textReverse);
+    }
     main{
         display: flex;
         flex-wrap: nowrap;
@@ -366,6 +371,7 @@ ul{
 
     #desktopFirstColumn,
     #desktopThirdColumn{
+        background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
         flex: 3;
         display: flex;
         flex-direction: column;
@@ -373,6 +379,11 @@ ul{
     }
 
     #desktopSecondColumn{
+        background-image: url(https://static.tildacdn.com/tild3064-3632-4562-b861-643432613463/_.png);
+        background-position:center center;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        position: relative;
         display: block;
         visibility: visible;
         flex: 4;
@@ -417,7 +428,11 @@ ul{
     }
 
     #subMenu ul{
-        background: var(--desktopMenuBackground);
+        background-color:rgb(0,0,0);
+        background-image:url(http://www.zingerbugimages.com/backgrounds/red_sand_stone.jpg);
+        background-position:top left;
+        background-repeat:repeat;
+        background-attachment:fixed;
         position: relative;
     }
 

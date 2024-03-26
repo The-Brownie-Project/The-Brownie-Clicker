@@ -21,6 +21,7 @@
 *{
     font-family: "Bitter", serif;
     color: var(--text);
+    -webkit-tap-highlight-color: transparent;
 }
 
 * button{
@@ -48,6 +49,11 @@ ul{
     margin-left: -40px;
 }
 
+#brownieTitle {
+    background-color: var(--bottomMenuButtonsTextColor);
+    border-radius: 50px;
+}
+
 .scoreInfos{
     width: 80%;
     margin: auto;
@@ -60,6 +66,7 @@ ul{
 }
 
 #clickableBrownie{
+    transition: ease-in-out 0.2s;
     width: 80%;
     margin: 0 auto;
     border-radius: 100px;
@@ -74,6 +81,10 @@ ul{
 
 #clickableBrownie:hover{
     cursor: pointer;
+}
+
+#clickableBrownie:active{
+    transform: scale(0.95);
 }
 
 #imageBrownie{
@@ -122,15 +133,13 @@ ul{
     margin-bottom: 0.5rem;
 }
 
+/*==============Togglable menu==============*/
+
 #bottomMenu{
     left: 0;
     right: 0;
     bottom: 0;
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
 }
 
 #bottomMenu button:hover{
@@ -139,19 +148,91 @@ ul{
 
 #menuButton{
     background: var(--bottomMenuBackground);
-    border: solid 1px var(--textReverse);
-    border-bottom: none;
+    border-bottom: none !important;
     border-radius: 0.5rem 0.5rem 0 0;
+    left: 50%;
+    right: 50%;
     padding: 0.5vh 0 0.5vh 0;
     width: 20vw;
 }
 
-#menuButton>span::before{
+#menuButton>span:before{
     content: '▲';
+    display: inline-block;
     color: var(--textReverse);
+    transition: ease-in-out 0.2s;
 }
 
-#bottomMenu ul{
+#menuButton>span:focus:before,
+#menuButton>span:active:before{
+    transform: rotate(180deg);
+}
+
+#subMenu {
+    color: var(--text);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: var(--bottomMenuButtonsHeight);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    z-index: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+#subMenu>ul{
+    position: unset;
+    top: 0;
+    background-color: var(--bottomMenuBackground);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    z-index: -1;
+}
+
+#subMenu>ul li:not(:last-child){
+    margin-bottom: 2rem;
+}
+
+#subMenu>ul li:first-child{
+    margin-top: 1rem;
+}
+
+#subMenu>ul li:last-child{
+    margin-bottom: 1rem;
+}
+
+#subMenu>ul li>span:after{
+    content: ' Brownies';
+}
+
+#subMenu>ul li>button{
+    background-color: var(--background);
+    font-size: 15px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 16px 16px;
+    margin-left: 10px;
+}
+
+#subMenu>p{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/*==============Mobile menu==============*/
+
+#tabMenu{
     background: var(--bottomMenuBackground);
     margin: 0 0 0 -40px;
     bottom: 0;
@@ -163,10 +244,11 @@ ul{
     justify-content: space-evenly;
 }
 
-#bottomMenu li>button{
+#tabMenu li>button{
     transition: 0.3 ease-in-out;
     color: var(--bottomMenuButtonsTextColor);
     box-shadow: var(--boxHighlightNone);
+    z-index: 2;
     font-weight: bold;
     font-size: 120%;
     border-radius: none;
@@ -175,121 +257,80 @@ ul{
     height: var(--bottomMenuButtonsHeight);
 }
 
-#bottomMenu li:nth-child(1) button{
+#tabMenu li:nth-child(1) button{
     background: var(--bottomMenuFirstButtonBackground);
 }
-#bottomMenu li:nth-child(1) button.activeHighlight,
-#bottomMenu li:nth-child(1) button:active{
+#tabMenu li:nth-child(1) button.activeHighlight,
+#tabMenu li:nth-child(1) button:active{
     box-shadow: 0 0 1rem 3px var(--bottomMenuFirstButtonBackground);
 }
 
-#bottomMenu li:nth-child(2) button{
+#tabMenu li:nth-child(2) button{
     background: var(--bottomMenuSecondButtonBackground);
 }
-#bottomMenu li:nth-child(2) button.activeHighlight,
-#bottomMenu li:nth-child(2) button:active{
+#tabMenu li:nth-child(2) button.activeHighlight,
+#tabMenu li:nth-child(2) button:active{
     box-shadow: 0 0 1rem 3px var(--bottomMenuSecondButtonBackground);
 }
 
-#bottomMenu li:nth-child(3) button{
+#tabMenu li:nth-child(3) button{
     background: var(--bottomMenuThirdButtonBackground);
 }
-#bottomMenu li:nth-child(3) button.activeHighlight,
-#bottomMenu li:nth-child(3) button:active{
+#tabMenu li:nth-child(3) button.activeHighlight,
+#tabMenu li:nth-child(3) button:active{
     box-shadow: 0 0 1rem 3px var(--bottomMenuThirdButtonBackground);
 }
 
-#bottomMenu li:nth-child(4) button{
+#tabMenu li:nth-child(4) button{
     background: var(--bottomMenuFourthButtonBackground);
 }
-#bottomMenu li:nth-child(4) button.activeHighlight,
-#bottomMenu li:nth-child(4) button:active{
+#tabMenu li:nth-child(4) button.activeHighlight,
+#tabMenu li:nth-child(4) button:active{
     box-shadow: 0 0 1rem 3px var(--bottomMenuFourthButtonBackground);
 }
 
+/*==============Keyframes animations==============*/
 
-/*#autoClickButton{
-    border-radius: 12px;
-    font-size: 20px;
-    background-color: blueviolet;
+@keyframes deploySubmenu{
+  from {
+    height: 0px;
+  }
+  to {
+    height: 16.55rem;
+  }
 }
 
-#autoClickButton:hover{
-    background-color: red;
-    color: white;
-    border-radius: 12px;
-}*/
-
-#subMenu {
-    background-color: var(--bottomMenuBackground);
-    color: var(--text);
-    height: calc(21.55rem - var(--bottomMenuButtonsHeight));
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-bottom: var(--bottomMenuButtonsHeight);
-    margin-bottom: 0;
-    z-index: 0;
-    visibility: hidden;
-    overflow-y: scroll;
-    scrollbar-width: 1rem;
+@keyframes retractSubmenu{
+  from {
+    height: 16.55rem;
+  }
+  to {
+    height: 0px;
+  }
 }
 
-::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
+
+
+@keyframes deploySubmenuDesktop{
+  from {
+    height: 0px;
+  }
+  to {
+    height: 100%;
+  }
 }
 
-#subMenu>ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
+@keyframes retractSubmenuDesktop{
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0px;
+  }
 }
 
-#subMenu>p{
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
+/*==============Desktop rules==============*/
 
-#subMenu button{
-    background-color: var(--background);
-    font-size: 15px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    padding: 16px 16px;
-    margin-left: 10px;
-}
-
-#brownieTitle {
-    background-color: var(--bottomMenuButtonsTextColor);
-    border-radius: 50px;
-}
-
-  @keyframes fadeIn {
-    0% {
-     opacity: 0;
-     visibility: hidden;
-    }
-    100% {
-      visibility: visible;
-      opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-      opacity: 1;
-      visibility: visible;
-    }
-    100% {
-      visibility: hidden;
-      opacity: 0;
-    }
-}
 
 #desktopSecondColumn,
 #fakeAdd,
@@ -346,50 +387,45 @@ ul{
 
 
     #shop{
+        background: var(--bottomMenuBackground);
         position: relative;
         height: 50vh;
-        background: var(--bottomMenuBackground);
         border: var(--templateBorder);
     }
 
     #subMenu{
-        top: 0;
-        left: 0;
-        right: 0;
+        z-index: 0;
         height: calc(50vh - var(--bottomMenuButtonsHeight));
+        margin-bottom: var(--bottomMenuButtonsHeight);
     }
 
-    #bottomMenu{
+    #bottomMenu,
+    #subMenu{
         left: 0;
         right: 0;
         bottom: 0;
-    }
-
-    #subMenu,
-    #bottomMenu{
-        background: var(--desktopMenuBackground);
         position: absolute;
         width: 100%;
     }
 
-    #bottomMenu ul{
+    #subMenu ul{
+        background: var(--desktopMenuBackground);
+        position: relative;
+    }
+
+    #tabMenu{
         width: 100%;
         margin-left: 0;
         padding-left: 0;
         justify-content: unset;
     }
     
-    #bottomMenu li>button{
+    #tabMenu li>button{
         width: calc((30vw - 7px) / 3);
     }
 
-    #subMenu{
-        top: 0;
-        visibility: hidden;
-    }
-
     #menuButton,
-    #bottomMenu li:nth-child(4){
+    #tabMenu li:last-child{
         display: none;
     }
 
@@ -461,7 +497,6 @@ ul{
         width: 100%;
     }
 }
-
     
 @media screen and (min-width: 578px) and (max-width: 1199px){
     #clickableBrownie{

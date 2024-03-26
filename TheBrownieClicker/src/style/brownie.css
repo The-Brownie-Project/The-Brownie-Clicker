@@ -25,7 +25,7 @@
 }
 
 * button{
-    color: var(--textReverse);
+    color: var(--bottomMenuButtonsTextColor);
 }
 
 body{
@@ -142,10 +142,6 @@ ul{
     position: absolute;
 }
 
-#bottomMenu button:hover{
-    cursor: pointer;
-}
-
 #menuButton{
     background: var(--bottomMenuBackground);
     border-bottom: none !important;
@@ -199,6 +195,10 @@ ul{
     z-index: -1;
 }
 
+#subMenu>ul li{
+    transition: ease-in-out 0.1s;
+}
+
 #subMenu>ul li:not(:last-child){
     margin-bottom: 2rem;
 }
@@ -211,27 +211,112 @@ ul{
     margin-bottom: 1rem;
 }
 
-#subMenu>ul li>span:after{
-    content: ' Brownies';
-}
-
 #subMenu>ul li>button{
-    background-color: var(--background);
+    background: var(--background);
+    color: var(--text);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
     font-size: 15px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 16px 16px;
-    margin-left: 10px;
 }
 
-#subMenu>p{
-    justify-content: center;
+#subMenu>ul li>button:active{
+    transform: scale(0.95);
+}
+
+/*==============Specific submenu==============*/
+
+#upgradesList>li,
+#bonusList>li,
+#skinsList>li{
+    box-shadow: 2px 2px 5px var(--bottomMenuButtonsTextColor);
+    display: flex;
+    align-items: center;
+}
+
+#upgradesList>li>button,
+#bonusList>li>button,
+#skinsList>li>button{
+    margin-left: 10px;
+    width: 8vh;
+    height: 75%;
+}
+
+#upgradesList>li>div,
+#bonusList>li>div,
+#skinsList>li>div{
+    color: var(--textReverse);
     display: flex;
     flex-direction: column;
+    font-weight: bold;
 }
 
-#successList>.mainList{
-    display: none;
+#upgradesList>li span,
+#bonusList>li span,
+#skinsList>li span{
+    color: var(--bottomMenuButtonsTextColor);
+    font-weight: 100;
+}
+
+#upgradesList>li span:after,
+#bonusList>li span:after,
+#skinsList>li span:after{
+    content: " Brownies";
+}
+
+#upgradesList>li,
+#bonusList>li{
+    width: auto;
+    height: 10vh;
+}
+
+#upgradesList>li>button,
+#bonusList>li>button{
+    margin-right: 20px;
+}
+
+#upgradesList>li span,
+#bonusList>li span{
+    font-size: 110%;
+}
+
+ul#skinsList,
+ul#optionsList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#skinsList>li:nth-child(2),
+#optionsList>li:nth-child(2){
+    margin-top: 1rem;
+}
+
+#skinsList>li{
+    width: 45%;
+    height: 10vh;
+    margin-right: 5px;
+}
+
+#skinsList>li>button{
+    margin-right: 10px;
+}
+
+#skinsList>li span{
+    font-size: 90%;
+}
+
+#optionsList>li{
+    text-align: center;
+    width: 45vw;
+    height: 7vh;
+    margin: 0 5px;
+}
+
+#optionsList>li button{
+    width: 75%;
+    height: 100%;
 }
 
 /*==============Mobile menu==============*/
@@ -250,7 +335,6 @@ ul{
 
 #tabMenu li>button{
     transition: 0.3 ease-in-out;
-    color: var(--bottomMenuButtonsTextColor);
     box-shadow: var(--boxHighlightNone);
     z-index: 2;
     font-weight: bold;
@@ -336,12 +420,9 @@ ul{
 /*==============Desktop rules==============*/
 
 
-#successList{
-    visibility: collapse;
-}
-
 #fakeAdd,
-#desktopSecondColumn{
+#desktopSecondColumn,
+#successList{
     display: none;
 }
 

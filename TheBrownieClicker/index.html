@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -14,18 +14,23 @@
     <script type="module" src="src/scripts/variables.js"></script>
     <script type="module" src="src/scripts/basicfunctions.js"></script> 
     <script type="module" src="src/scripts/index.js"></script>
+
 </head>
     <body>
         <main>
             <div id="desktopFirstColumn">
                 <section>
                     <h1 id="brownieTitle">The AllMighty Brownie</h1>
+
                     <div class="scoreInfos">
+
                         <h2><span id="scoreDisplay">0</span> Brownies</h2>
                         <hr/>
                         <h3><span id="speedDisplay">0</span> B/s</h3>
                     </div>
                     <div id="clickableBrownie">
+<!--                         onclick="audio.play() "<script type="text/javascript">let audio = new Audio('./src/sound/crunch.mp3');</script> -->
+                        <!-- Uncaught (in promise) DOMException: The element has no supported sources. || waiting for fix -->
                         <img class="responsiveImg" id="imageBrownie" src="src/images/BrownieShortcut.png" draggable="false">
                     </div>
                 </section>
@@ -35,7 +40,7 @@
                         <li>
                             <ul class="subList">
                                 <li><strong>Multiplicator: </strong><span id="multiplicatorDisplay">0</span></li>
-                                <li><strong>Resets: </strong><span id="resetsDisplay">0</span></li>
+                                <li><strong>Resets: </strong><span id="resetDisplay">0</span></li>
                             </ul>
                         </li>
                         <li>
@@ -61,7 +66,9 @@
 
             <div id="desktopThirdColumn">
                 <section id="shop">
+
                     <!-- <h2>Shop</h2> -->
+
                     <div id="bottomMenu">
                         
                         <div id="subMenu">
@@ -69,7 +76,7 @@
                             <ul id="upgradesList">
                                 <li><button id="autoClick">AC</button> Auto Click - <span>0</span></li>
                                 <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span></li>
-                                <li><button id="buttonUpgrade3">U3</button><span>0</span></li>
+                                <li><button id="resetButton">U3</button><span>0</span></li>
                                 <li><button id="buttonUpgrade4">U4</button><span>0</span></li>
                                 <li><button id="buttonUpgrade5">U5</button><span>0</span></li>
                             </ul>
@@ -104,8 +111,9 @@
 
                     </div>
                 </section>
-
+                                                          
                  <div id="fakeAdd">
+
                     <a href="https://github.com/The-Brownie-Project" target="_blank"><img
                         src="src/images/601c0ca349b3c229917b8b16612acf6a.jpg" alt="Shrek"></a>
                 </div>

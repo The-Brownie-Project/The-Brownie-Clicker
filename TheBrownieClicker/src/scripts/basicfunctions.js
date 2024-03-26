@@ -29,3 +29,9 @@ export default class DefaultFunction{
         this.timeLostDisplay.innerHTML = currentTime
     }
 }
+
+export function PlaySound (url) {
+    let audio = new Audio(url);
+    audio.volume = 0.01;
+    audio.play();
+}

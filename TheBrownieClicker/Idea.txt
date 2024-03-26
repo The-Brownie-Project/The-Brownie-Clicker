@@ -46,8 +46,7 @@ Skins :
 - dragon ball reference
 
 Ajout: 
-
-- Time loss on this clicker
+<
 - lock the clicker at 50h and force the player to touch X50 grass
 - make false ads who redirect on funny webpage
 - megumin explosion (reset)

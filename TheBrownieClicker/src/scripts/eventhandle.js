@@ -76,10 +76,12 @@ export default class EventHandler extends Init{
             /* Public Variables */
             this.usrClickThisSession = usrClickThisSession;
             this.amountOfReset = amountOfReset;
+
             this.upgradesButton = upgradesButton;
             this.bonusButton = bonusButton;
             this.skinsButton = skinsButton;
             this.optionsButton = optionsButton;
+
             this.upgradesList = upgradesList;
             this.bonusList = bonusList;
             this.skinsList = skinsList;
@@ -91,7 +93,7 @@ export default class EventHandler extends Init{
             var timeSpent = 0;
             var timeBeforeCPSReset = 0;
             var tmpBrowniePerClick = 1;
-            var tmpListsPointer = document;
+            let tmpListsPointer;
             
             this.upgradesList = upgradesList;
             this.bonusList = bonusList;
@@ -152,8 +154,9 @@ export default class EventHandler extends Init{
         that.bonusList.style.height = '0px';
         that.skinsList.style.height = '0px';
         that.optionsList.style.height = '0px';
+        openMenuBtn.style.border = 'solid 1px var(--textReverse)'
 
-        that.tmpListsPointers = this.upgradesList
+        that.tmpListsPointers = this.upgradesList;
 
         console.log("Event Handler Started");
     };
@@ -163,11 +166,11 @@ export default class EventHandler extends Init{
         if (this.upgradesList.style.height == '0px' &&
             this.bonusList.style.height == '0px' &&
             this.skinsList.style.height == '0px' &&
-            this.optionsList.style.height == '0px' &&
-            this.localStorage.getItem('subMenuMode') !== null){
-                this.OpenSubMenu(this.tmpListsPointer)
-            } else {
-                this.CloseSubMenu(this.tmpListsPointer)
+            this.optionsList.style.height == '0px'){
+                this.OpenSubMenu()
+            } 
+            else {
+                this.CloseSubMenu()
             }
         }
 
@@ -265,74 +268,74 @@ export default class EventHandler extends Init{
     UpgradeButton = () => {
         console.log('UpgradeButton')
         if (this.upgradesList.style.height == '0px'){
-            this.CloseSubMenu(this.tmpListsPointer)
-            this.tmpListsPointer = this.upgradesList
-            this.OpenSubMenu(this.tmpListsPointer)
+            this.CloseSubMenu()
+            this.tmpListsPointers = this.upgradesList
+            this.OpenSubMenu()
         } else {
-            this.CloseSubMenu(this.tmpListsPointer)
+            this.CloseSubMenu()
         }
     }
 
     BonusButton = () => {
         console.log('BonusButton')
         if (this.bonusList.style.height == '0px'){
-            this.CloseSubMenu(this.tmpListsPointer)
-            this.tmpListsPointer = this.bonusList
-            this.OpenSubMenu(this.tmpListsPointer)
+            this.CloseSubMenu()
+            this.tmpListsPointers = this.bonusList
+            this.OpenSubMenu()
         } else {
-            this.CloseSubMenu(this.tmpListsPointer)
+            this.CloseSubMenu()
         }
     }
 
     SkinsButton = () => {
         console.log('SkinsButton')
         if (this.skinsList.style.height == '0px'){
-            this.CloseSubMenu(this.tmpListsPointer)
-            this.tmpListsPointer = this.skinsList
-            this.OpenSubMenu(this.tmpListsPointer)
+            this.CloseSubMenu()
+            this.tmpListsPointers = this.skinsList
+            this.OpenSubMenu()
         } else {
-            this.CloseSubMenu(this.tmpListsPointer)
+            this.CloseSubMenu()
         }
     }
 
     OptionsButton = () => {
         console.log('OptionsButton')
         if (this.optionsList.style.height == '0px'){
-            this.CloseSubMenu(this.tmpListsPointer)
-            this.tmpListsPointer = this.optionsList
-            this.OpenSubMenu(this.tmpListsPointer)
+            this.CloseSubMenu()
+            this.tmpListsPointers = this.optionsList
+            this.OpenSubMenu()
         } else {
-            this.CloseSubMenu(this.tmpListsPointer)
+            this.CloseSubMenu()
         }
     }
     /*_____________*/
 
-    OpenSubMenu = (menuToOpen) => {
+    OpenSubMenu = () => {
         console.log('Open Sub Menu')        
-        if (menuToOpen.style.height == '0px') {
+        if (this.tmpListsPointers.style.height == '0px') {
             if (window.innerWidth < '1200'){
-                menuToOpen.style.animation = '0.3s deploySubmenu'
-                menuToOpen.style.height = '16.55rem'
+                this.tmpListsPointers.style.animation = '0.3s deploySubmenu'
+                this.tmpListsPointers.style.height = '16.55rem'
             } else {
-                menuToOpen.style.animation = ' 0.3s deploySubmenuDesktop'
-                menuToOpen.style.height = '100%'
+                this.tmpListsPointers.style.animation = ' 0.3s deploySubmenuDesktop'
+                this.tmpListsPointers.style.height = '100%'
             }
-            openMenuBtn.style.border = 'solid 1px var(--text)'
+            this.openMenuBtn.style.border = 'solid 1px var(--text)'
         }
     }
 
-    CloseSubMenu(menuToClose){
+    CloseSubMenu(){
         console.log('Close Sub Menu')
-        if (menuToClose === null){
+        if (this.tmpListsPointers === null){
             return
         }
         if (window.innerWidth < '1200'){
-            menuToClose.style.animation = '0.3s retractSubmenu'
+            this.tmpListsPointers.style.animation = '0.3s retractSubmenu'
         } else {
-            menuToClose.style.animation = '0.3s retractSubmenuDesktop'
+            this.tmpListsPointers.style.animation = '0.3s retractSubmenuDesktop'
         }
-        menuToClose.style.height = '0px'
-        openMenuBtn.style.border = 'solid 1px var(--textReverse)'
+        this.tmpListsPointers.style.height = '0px'
+        this.openMenuBtn.style.border = 'solid 1px var(--textReverse)'
     }
 
     /* Get a specific value from this object

@@ -21,14 +21,16 @@
 *{
     font-family: "Bitter", serif;
     color: var(--text);
+    -webkit-tap-highlight-color: transparent;
 }
 
 * button{
-    color: var(--textReverse);
+    color: var(--bottomMenuButtonsTextColor);
 }
 
 body{
-    background: var(--background);
+    background: var(--textReverse);
+    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
 }
 
 h1{
@@ -48,6 +50,11 @@ ul{
     margin-left: -40px;
 }
 
+#brownieTitle {
+    background-color: var(--bottomMenuButtonsTextColor);
+    border-radius: 50px;
+}
+
 .scoreInfos{
     width: 80%;
     margin: auto;
@@ -60,6 +67,7 @@ ul{
 }
 
 #clickableBrownie{
+    transition: ease-in-out 0.2s;
     width: 80%;
     margin: 0 auto;
     border-radius: 100px;
@@ -76,13 +84,17 @@ ul{
     cursor: pointer;
 }
 
+#clickableBrownie:active{
+    transform: scale(0.95);
+}
+
 #imageBrownie{
     max-width: 200px;
     margin: auto 0;
 }
 
 #statsList{
-    background: var(--statsBackground);
+    background-image: url(https://images6.alphacoders.com/379/thumb-1920-379569.png);
     border-top: var(--templateBorder);
     width: auto;
     left: 0;
@@ -122,36 +134,195 @@ ul{
     margin-bottom: 0.5rem;
 }
 
+/*==============Togglable menu==============*/
+
 #bottomMenu{
     left: 0;
     right: 0;
     bottom: 0;
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-}
-
-#bottomMenu button:hover{
-    cursor: pointer;
 }
 
 #menuButton{
     background: var(--bottomMenuBackground);
-    border: solid 1px var(--textReverse);
-    border-bottom: none;
+    border-bottom: none !important;
     border-radius: 0.5rem 0.5rem 0 0;
+    left: 50%;
+    right: 50%;
     padding: 0.5vh 0 0.5vh 0;
     width: 20vw;
 }
 
-#menuButton>span::before{
+#menuButton>span:before{
     content: '▲';
+    display: inline-block;
     color: var(--textReverse);
+    transition: ease-in-out 0.2s;
 }
 
-#bottomMenu ul{
+#menuButton>span:focus:before,
+#menuButton>span:active:before{
+    transform: rotate(180deg);
+}
+
+#subMenu {
+    color: var(--text);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: var(--bottomMenuButtonsHeight);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    z-index: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+#subMenu>ul{
+    position: unset;
+    top: 0;
+    background-color: var(--bottomMenuBackground);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    z-index: -1;
+}
+
+#subMenu>ul li{
+    transition: ease-in-out 0.1s;
+}
+
+#subMenu>ul li:not(:last-child){
+    margin-bottom: 2rem;
+}
+
+#subMenu>ul li:first-child{
+    margin-top: 1rem;
+}
+
+#subMenu>ul li:last-child{
+    margin-bottom: 1rem;
+}
+
+#subMenu>ul li>button{
+    background: var(--background);
+    color: var(--text);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 16px 16px;
+}
+
+#subMenu>ul li>button:active{
+    transform: scale(0.95);
+}
+
+/*==============Specific submenu==============*/
+
+#upgradesList>li,
+#bonusList>li,
+#skinsList>li{
+    box-shadow: 2px 2px 5px var(--bottomMenuButtonsTextColor);
+    display: flex;
+    align-items: center;
+}
+
+#upgradesList>li>button,
+#bonusList>li>button,
+#skinsList>li>button{
+    margin-left: 10px;
+    width: 8vh;
+    height: 75%;
+}
+
+#upgradesList>li>div,
+#bonusList>li>div,
+#skinsList>li>div{
+    color: var(--textReverse);
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+#upgradesList>li span,
+#bonusList>li span,
+#skinsList>li span{
+    color: var(--bottomMenuButtonsTextColor);
+    font-weight: 100;
+}
+
+#upgradesList>li span:after,
+#bonusList>li span:after,
+#skinsList>li span:after{
+    content: " Brownies";
+}
+
+#upgradesList>li,
+#bonusList>li{
+    width: auto;
+    height: 10vh;
+}
+
+#upgradesList>li>button,
+#bonusList>li>button{
+    margin-right: 20px;
+}
+
+#upgradesList>li span,
+#bonusList>li span{
+    font-size: 110%;
+}
+
+ul#skinsList,
+ul#optionsList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#skinsList>li:nth-child(2),
+#optionsList>li:nth-child(2){
+    margin-top: 1rem;
+}
+
+#skinsList>li{
+    width: 45%;
+    height: 10vh;
+    margin-right: 5px;
+}
+
+#skinsList>li>button{
+    margin-right: 10px;
+}
+
+#skinsList>li span{
+    font-size: 90%;
+}
+
+#optionsList>li{
+    text-align: center;
+    width: 45vw;
+    height: 7vh;
+    margin: 0 5px;
+}
+
+#optionsList>li button{
+    width: 75%;
+    height: 100%;
+}
+
+/*==============Mobile menu==============*/
+
+#tabMenu{
     background: var(--bottomMenuBackground);
     margin: 0 0 0 -40px;
     bottom: 0;
@@ -163,10 +334,10 @@ ul{
     justify-content: space-evenly;
 }
 
-#bottomMenu li>button{
+#tabMenu li>button{
     transition: 0.3 ease-in-out;
-    color: var(--bottomMenuButtonsTextColor);
     box-shadow: var(--boxHighlightNone);
+    z-index: 2;
     font-weight: bold;
     font-size: 120%;
     border-radius: none;
@@ -175,130 +346,93 @@ ul{
     height: var(--bottomMenuButtonsHeight);
 }
 
-#bottomMenu li:nth-child(1) button{
+#tabMenu li:nth-child(1) button{
     background: var(--bottomMenuFirstButtonBackground);
 }
-#bottomMenu li:nth-child(1) button.activeHighlight,
-#bottomMenu li:nth-child(1) button:active{
+#tabMenu li:nth-child(1) button.activeHighlight,
+#tabMenu li:nth-child(1) button:active{
     box-shadow: 0 0 1rem 3px var(--bottomMenuFirstButtonBackground);
 }
 
-#bottomMenu li:nth-child(2) button{
+#tabMenu li:nth-child(2) button{
     background: var(--bottomMenuSecondButtonBackground);
 }
-#bottomMenu li:nth-child(2) button.activeHighlight,
-#bottomMenu li:nth-child(2) button:active{
+#tabMenu li:nth-child(2) button.activeHighlight,
+#tabMenu li:nth-child(2) button:active{
     box-shadow: 0 0 1rem 3px var(--bottomMenuSecondButtonBackground);
 }
 
-#bottomMenu li:nth-child(3) button{
+#tabMenu li:nth-child(3) button{
     background: var(--bottomMenuThirdButtonBackground);
 }
-#bottomMenu li:nth-child(3) button.activeHighlight,
-#bottomMenu li:nth-child(3) button:active{
+#tabMenu li:nth-child(3) button.activeHighlight,
+#tabMenu li:nth-child(3) button:active{
     box-shadow: 0 0 1rem 3px var(--bottomMenuThirdButtonBackground);
 }
 
-#bottomMenu li:nth-child(4) button{
+#tabMenu li:nth-child(4) button{
     background: var(--bottomMenuFourthButtonBackground);
 }
-#bottomMenu li:nth-child(4) button.activeHighlight,
-#bottomMenu li:nth-child(4) button:active{
+#tabMenu li:nth-child(4) button.activeHighlight,
+#tabMenu li:nth-child(4) button:active{
     box-shadow: 0 0 1rem 3px var(--bottomMenuFourthButtonBackground);
 }
 
+/*==============Keyframes animations==============*/
 
-/*#autoClickButton{
-    border-radius: 12px;
-    font-size: 20px;
-    background-color: blueviolet;
+@keyframes deploySubmenu{
+  from {
+    height: 0px;
+  }
+  to {
+    height: 16.55rem;
+  }
 }
 
-#autoClickButton:hover{
-    background-color: red;
-    color: white;
-    border-radius: 12px;
-}*/
-
-#subMenu {
-    background-color: var(--bottomMenuBackground);
-    color: var(--text);
-    height: calc(21.55rem - var(--bottomMenuButtonsHeight));
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-bottom: var(--bottomMenuButtonsHeight);
-    margin-bottom: 0;
-    z-index: 0;
-    visibility: hidden;
-    overflow-y: scroll;
-    scrollbar-width: 1rem;
+@keyframes retractSubmenu{
+  from {
+    height: 16.55rem;
+  }
+  to {
+    height: 0px;
+  }
 }
 
-::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
+
+
+@keyframes deploySubmenuDesktop{
+  from {
+    height: 0px;
+  }
+  to {
+    height: 100%;
+  }
 }
 
-#subMenu>ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
+@keyframes retractSubmenuDesktop{
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0px;
+  }
 }
 
-#subMenu>p{
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
+/*==============Desktop rules==============*/
 
-#subMenu button{
-    background-color: var(--background);
-    font-size: 15px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    padding: 16px 16px;
-    margin-left: 10px;
-}
 
-#brownieTitle {
-    background-color: var(--bottomMenuButtonsTextColor);
-    border-radius: 50px;
-}
-
-  @keyframes fadeIn {
-    0% {
-     opacity: 0;
-     visibility: hidden;
-    }
-    100% {
-      visibility: visible;
-      opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-      opacity: 1;
-      visibility: visible;
-    }
-    100% {
-      visibility: hidden;
-      opacity: 0;
-    }
-}
-
-#desktopSecondColumn,
 #fakeAdd,
+#desktopSecondColumn,
 #successList{
-    visibility: collapse;
+    display: none;
 }
 
 
 @media screen and (min-width: 1200px){
+
+    body{
+        background: var(--textReverse);
+    }
     main{
         display: flex;
         flex-wrap: nowrap;
@@ -318,6 +452,7 @@ ul{
 
     #desktopFirstColumn,
     #desktopThirdColumn{
+        background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
         flex: 3;
         display: flex;
         flex-direction: column;
@@ -325,6 +460,12 @@ ul{
     }
 
     #desktopSecondColumn{
+        background-image: url(https://static.tildacdn.com/tild3064-3632-4562-b861-643432613463/_.png);
+        background-position:center center;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        position: relative;
+        display: block;
         visibility: visible;
         flex: 4;
         height: 98vh;
@@ -345,56 +486,106 @@ ul{
     }
 
 
+    #desktopOptions{
+        position: absolute;
+        right: 2vw;
+        bottom: 0;
+    }
+
+    #desktopOptions button{
+        background: var(--background);
+        color: var(--text);
+        transition: ease-in-out 0.2s;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 50px;
+        list-style-type: none;
+    }
+
+    #desktopOptions ul{
+        background: var(--desktopMenuBackground);
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 70px;
+        padding: 5px 20px;
+        margin-top: 0;
+        margin-left: 0;
+        transition: max-height 0.5s ease-out;
+    }
+
+    #desktopOptions ul>li{
+        text-align: center;
+        width: 60px;
+    }
+
+    #desktopOptions ul button{
+        border: none;
+        height: 65px;
+        width: 65px;
+    }
+
+    #desktopOptions ul button:hover{
+        cursor: pointer;
+    }
+
+    #desktopOptions ul button:active{
+        transform: scale(0.95);
+    }
+
+
     #shop{
+        background: var(--bottomMenuBackground);
         position: relative;
         height: 50vh;
-        background: var(--bottomMenuBackground);
         border: var(--templateBorder);
     }
 
     #subMenu{
-        top: 0;
-        left: 0;
-        right: 0;
+        z-index: 0;
         height: calc(50vh - var(--bottomMenuButtonsHeight));
+        margin-bottom: var(--bottomMenuButtonsHeight);
     }
 
-    #bottomMenu{
+    #bottomMenu,
+    #subMenu{
         left: 0;
         right: 0;
         bottom: 0;
-    }
-
-    #subMenu,
-    #bottomMenu{
-        background: var(--desktopMenuBackground);
         position: absolute;
         width: 100%;
     }
 
-    #bottomMenu ul{
+    #subMenu ul{
+        background-color:rgb(0,0,0);
+        background-image:url(http://www.zingerbugimages.com/backgrounds/red_sand_stone.jpg);
+        background-position:top left;
+        background-repeat:repeat;
+        background-attachment:fixed;
+        position: relative;
+    }
+
+    #tabMenu{
         width: 100%;
         margin-left: 0;
         padding-left: 0;
         justify-content: unset;
     }
     
-    #bottomMenu li>button{
+    #tabMenu li>button{
         width: calc((30vw - 7px) / 3);
     }
 
-    #subMenu{
-        top: 0;
-        visibility: hidden;
-    }
-
     #menuButton,
-    #bottomMenu li:nth-child(4){
+    #tabMenu li:last-child{
         display: none;
     }
 
     #fakeAdd{
+        display: block;
         visibility: visible;
+        object-fit: contain;
         right: 0;
         height: 15vh;
         width: 90%;
@@ -419,29 +610,28 @@ ul{
     }
 
     #successList>.mainList{
+        display: flex;
+        gap: 20px;
+        flex-direction: column-reverse;
         width: 90%;
         height: 20vh;
         padding-left: 0;
         margin: 0 auto;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     #successList>.mainList>li{
-        color: var(--textReverse);
         box-shadow: 10px 2px 5px var(--bottomMenuButtonsTextColor);
         display: flex;
         align-items: center;
+        padding: 5px 0;
         width: auto;
         height: 5vh;
     }
 
-    #successList>.mainList>li:not(:last-child){
-        margin-bottom: 20px;
-    }
-
     #successList>.mainList>li>img{
         width: 5vh;
-        height: 100%;
+        height: 5vh;
         margin-right: 20px;
     }
 
@@ -452,6 +642,7 @@ ul{
 
     #successList>.mainList>li strong{
         color: var(--textReverse);
+/*        text-transform: uppercase;*/
         font-size: 110%;
     }
 
@@ -461,7 +652,6 @@ ul{
         width: 100%;
     }
 }
-
     
 @media screen and (min-width: 578px) and (max-width: 1199px){
     #clickableBrownie{

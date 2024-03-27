@@ -47,8 +47,6 @@ var EHandle = new EventHandler(
 
   vari.browniesPerClickDisplay,
 
-  vari.subMenu,
-
   vari.upgradesButton,
   vari.bonusButton,
   vari.skinsButton,
@@ -69,6 +67,5 @@ var DefFunc = new DefaultFunction(
   vari.timeLostDisplay
   )
 
-openMenuBtn.style.border = 'solid 1px var(--textReverse)'
 EHandle
 DefFunc

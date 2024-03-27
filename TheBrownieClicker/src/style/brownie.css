@@ -2,20 +2,29 @@
     --debug: 1px dotted gold;
     --background: #423c35;
     --statsBackground: #9c7348;
+    --buttonBackground: #423c35;
     --text: #eee;
     --textReverse: #111;
     --boxHighlightNone: 0 0 1rem 6px rgba(255,255,255,0);
     --templateBorder: solid 1px var(--text);
     --desktopMenuBackground: #e1cccc;
 
-    --bottomMenuBackground: #999;
-    --bottomMenuButtonsTextColor: #555;
-    --bottomMenuFirstButtonBackground: #a6ec99;
-    --bottomMenuSecondButtonBackground: #97ccf6;
-    --bottomMenuThirdButtonBackground: #e9a85e;
-    --bottomMenuFourthButtonBackground: #f7d6a4;
+    --tabMenuBackground: #999;
+    --tabMenuButtonsTextColor: #555;
+    --tabMenuFirstButtonBackground: #a6ec99;
+    --tabMenuSecondButtonBackground: #97ccf6;
+    --tabMenuThirdButtonBackground: #e9a85e;
+    --tabMenuFourthButtonBackground: #f7d6a4;
+    --tabMenuButtonsHeight: 5rem;
+}
 
-    --bottomMenuButtonsHeight: 5rem;
+.RTXON{
+    --background: #111;
+
+    --textureMainWood: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    --textureStatsWood: url(https://images6.alphacoders.com/379/thumb-1920-379569.png);
+    --textureBlackBricks: url(https://static.tildacdn.com/tild3064-3632-4562-b861-643432613463/_.png);
+    --texturePinkMarble: url(http://www.zingerbugimages.com/backgrounds/red_sand_stone.jpg);
 }
 
 *{
@@ -25,12 +34,14 @@
 }
 
 * button{
-    color: var(--bottomMenuButtonsTextColor);
+
+    background: var(--buttonBackground);
 }
 
 body{
-    background: var(--textReverse);
-    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    background: var(--background);
+    background-image: var(--textureMainWood);
+
 }
 
 h1{
@@ -51,7 +62,8 @@ ul{
 }
 
 #brownieTitle {
-    background-color: var(--bottomMenuButtonsTextColor);
+    background-color: rgba(85, 85, 85, 0.7);
+
     border-radius: 50px;
 }
 
@@ -94,7 +106,9 @@ ul{
 }
 
 #statsList{
-    background-image: url(https://images6.alphacoders.com/379/thumb-1920-379569.png);
+
+    background: var(--statsBackground);
+    background-image: var(--textureStatsWood);
     border-top: var(--templateBorder);
     width: auto;
     left: 0;
@@ -121,7 +135,7 @@ ul{
     align-items: center;
     justify-content: space-evenly;
     padding-top: 1rem;
-    padding-bottom: var(--bottomMenuButtonsHeight);
+    padding-bottom: var(--tabMenuButtonsHeight);
     margin-bottom: 0;
 }
 
@@ -144,7 +158,7 @@ ul{
 }
 
 #menuButton{
-    background: var(--bottomMenuBackground);
+    background: var(--tabMenuBackground);
     border-bottom: none !important;
     border-radius: 0.5rem 0.5rem 0 0;
     left: 50%;
@@ -170,7 +184,7 @@ ul{
     position: fixed;
     left: 0;
     right: 0;
-    bottom: var(--bottomMenuButtonsHeight);
+    bottom: var(--tabMenuButtonsHeight);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -188,7 +202,7 @@ ul{
 #subMenu>ul{
     position: unset;
     top: 0;
-    background-color: var(--bottomMenuBackground);
+    background-color: var(--tabMenuBackground);
     width: 100%;
     margin: 0;
     padding: 0;
@@ -231,7 +245,8 @@ ul{
 #upgradesList>li,
 #bonusList>li,
 #skinsList>li{
-    box-shadow: 2px 2px 5px var(--bottomMenuButtonsTextColor);
+
+    box-shadow: 2px 2px 5px var(--tabMenuButtonsTextColor);
     display: flex;
     align-items: center;
 }
@@ -256,7 +271,8 @@ ul{
 #upgradesList>li span,
 #bonusList>li span,
 #skinsList>li span{
-    color: var(--bottomMenuButtonsTextColor);
+
+    color: var(--tabMenuButtonsTextColor);
     font-weight: 100;
 }
 
@@ -323,7 +339,7 @@ ul#optionsList{
 /*==============Mobile menu==============*/
 
 #tabMenu{
-    background: var(--bottomMenuBackground);
+    background: var(--tabMenuBackground);
     margin: 0 0 0 -40px;
     bottom: 0;
     left: 0;
@@ -335,6 +351,7 @@ ul#optionsList{
 }
 
 #tabMenu li>button{
+
     transition: 0.3 ease-in-out;
     box-shadow: var(--boxHighlightNone);
     z-index: 2;
@@ -343,39 +360,39 @@ ul#optionsList{
     border-radius: none;
     border: solid 1px black;
     width: calc(100vw / 4);
-    height: var(--bottomMenuButtonsHeight);
+    height: var(--tabMenuButtonsHeight);
 }
 
 #tabMenu li:nth-child(1) button{
-    background: var(--bottomMenuFirstButtonBackground);
+    background: var(--tabMenuFirstButtonBackground);
 }
 #tabMenu li:nth-child(1) button.activeHighlight,
 #tabMenu li:nth-child(1) button:active{
-    box-shadow: 0 0 1rem 3px var(--bottomMenuFirstButtonBackground);
+    box-shadow: 0 0 1rem 3px var(--tabMenuFirstButtonBackground);
 }
 
 #tabMenu li:nth-child(2) button{
-    background: var(--bottomMenuSecondButtonBackground);
+    background: var(--tabMenuSecondButtonBackground);
 }
 #tabMenu li:nth-child(2) button.activeHighlight,
 #tabMenu li:nth-child(2) button:active{
-    box-shadow: 0 0 1rem 3px var(--bottomMenuSecondButtonBackground);
+    box-shadow: 0 0 1rem 3px var(--tabMenuSecondButtonBackground);
 }
 
 #tabMenu li:nth-child(3) button{
-    background: var(--bottomMenuThirdButtonBackground);
+    background: var(--tabMenuThirdButtonBackground);
 }
 #tabMenu li:nth-child(3) button.activeHighlight,
 #tabMenu li:nth-child(3) button:active{
-    box-shadow: 0 0 1rem 3px var(--bottomMenuThirdButtonBackground);
+    box-shadow: 0 0 1rem 3px var(--tabMenuThirdButtonBackground);
 }
 
 #tabMenu li:nth-child(4) button{
-    background: var(--bottomMenuFourthButtonBackground);
+    background: var(--tabMenuFourthButtonBackground);
 }
 #tabMenu li:nth-child(4) button.activeHighlight,
 #tabMenu li:nth-child(4) button:active{
-    box-shadow: 0 0 1rem 3px var(--bottomMenuFourthButtonBackground);
+    box-shadow: 0 0 1rem 3px var(--tabMenuFourthButtonBackground);
 }
 
 /*==============Keyframes animations==============*/
@@ -431,7 +448,8 @@ ul#optionsList{
 @media screen and (min-width: 1200px){
 
     body{
-        background: var(--textReverse);
+
+        background: var(--background);
     }
     main{
         display: flex;
@@ -452,7 +470,8 @@ ul#optionsList{
 
     #desktopFirstColumn,
     #desktopThirdColumn{
-        background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+
+        background-image: var(--textureMainWood);
         flex: 3;
         display: flex;
         flex-direction: column;
@@ -460,13 +479,12 @@ ul#optionsList{
     }
 
     #desktopSecondColumn{
-        background-image: url(https://static.tildacdn.com/tild3064-3632-4562-b861-643432613463/_.png);
+        background-image: var(--textureBlackBricks);
         background-position:center center;
         background-repeat:no-repeat;
         background-attachment:fixed;
         position: relative;
         display: block;
-        visibility: visible;
         flex: 4;
         height: 98vh;
         border-left: var(--templateBorder);
@@ -491,17 +509,6 @@ ul#optionsList{
         right: 2vw;
         bottom: 0;
     }
-
-    #desktopOptions button{
-        background: var(--background);
-        color: var(--text);
-        transition: ease-in-out 0.2s;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 50px;
-        list-style-type: none;
-    }
-
     #desktopOptions ul{
         background: var(--desktopMenuBackground);
         border-radius: 50px;
@@ -512,7 +519,6 @@ ul#optionsList{
         padding: 5px 20px;
         margin-top: 0;
         margin-left: 0;
-        transition: max-height 0.5s ease-out;
     }
 
     #desktopOptions ul>li{
@@ -522,6 +528,8 @@ ul#optionsList{
 
     #desktopOptions ul button{
         border: none;
+        border-radius: 50px;
+        font-weight: bold;
         height: 65px;
         width: 65px;
     }
@@ -534,9 +542,19 @@ ul#optionsList{
         transform: scale(0.95);
     }
 
+    #fakeAdd{
+        display: block;
+        visibility: visible;
+        object-fit: contain;
+        right: 0;
+        height: 15vh;
+        width: 90%;
+        margin-left: 10%;
+    }
+
 
     #shop{
-        background: var(--bottomMenuBackground);
+        background: var(--tabMenuBackground);
         position: relative;
         height: 50vh;
         border: var(--templateBorder);
@@ -544,8 +562,8 @@ ul#optionsList{
 
     #subMenu{
         z-index: 0;
-        height: calc(50vh - var(--bottomMenuButtonsHeight));
-        margin-bottom: var(--bottomMenuButtonsHeight);
+        height: calc(50vh - var(--tabMenuButtonsHeight));
+        margin-bottom: var(--tabMenuButtonsHeight);
     }
 
     #bottomMenu,
@@ -558,8 +576,8 @@ ul#optionsList{
     }
 
     #subMenu ul{
-        background-color:rgb(0,0,0);
-        background-image:url(http://www.zingerbugimages.com/backgrounds/red_sand_stone.jpg);
+        background: var(--desktopMenuBackground);
+        background-image: var(--texturePinkMarble);
         background-position:top left;
         background-repeat:repeat;
         background-attachment:fixed;
@@ -581,17 +599,6 @@ ul#optionsList{
     #tabMenu li:last-child{
         display: none;
     }
-
-    #fakeAdd{
-        display: block;
-        visibility: visible;
-        object-fit: contain;
-        right: 0;
-        height: 15vh;
-        width: 90%;
-        margin-left: 10%;
-    }
-
     #successList{
         visibility: visible;
         background: var(--desktopMenuBackground);
@@ -606,7 +613,7 @@ ul#optionsList{
     }
 
     #successList>h2{
-        color: var(--bottomMenuButtonsTextColor);
+        color: var(--tabMenuButtonsTextColor);
     }
 
     #successList>.mainList{
@@ -621,7 +628,7 @@ ul#optionsList{
     }
 
     #successList>.mainList>li{
-        box-shadow: 10px 2px 5px var(--bottomMenuButtonsTextColor);
+        box-shadow: 10px 2px 5px var(--tabMenuButtonsTextColor);
         display: flex;
         align-items: center;
         padding: 5px 0;
@@ -647,7 +654,7 @@ ul#optionsList{
     }
 
     #successList>.mainList>li em{
-        color: var(--bottomMenuButtonsTextColor);
+        color: var(--tabMenuButtonsTextColor);
         font-size: 85%;
         width: 100%;
     }

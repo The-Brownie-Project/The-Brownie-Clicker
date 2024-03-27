@@ -11,23 +11,40 @@ export default class EventHandler extends Init{
         autoClickButton,
         multiplier,
         bonus,
+        
         priceAC,
         numofAC,
         ACHandle,
+        
         multipling,
         priceMul,
         multiplingDisplay,
+        
         openMenuBtn,
         bottomMenu, 
         subMenu,
+        
         userBrowniePerSec,
         clickSpeed,
+        
         browniesClickedSessionDisplay,
         usrClickThisSession,
+        
         amountOfReset,
         resetButton,
         resetDisplay,
-        browniesPerClickDisplay
+        
+        browniesPerClickDisplay,
+        
+        upgradesButton,
+        bonusButton,
+        skinsButton,
+        optionsButton,
+
+        upgradesList,
+        bonusList,
+        skinsList,
+        optionsList
         )
         {
         /* Init method variables */    
@@ -52,73 +69,110 @@ export default class EventHandler extends Init{
             browniesClickedSessionDisplay,
             resetButton,
             resetDisplay,
-            browniesPerClickDisplay
+            browniesPerClickDisplay,
             );
             /*###*/
 
             /* Public Variables */
             this.usrClickThisSession = usrClickThisSession;
             this.amountOfReset = amountOfReset;
+
+            this.upgradesButton = upgradesButton;
+            this.bonusButton = bonusButton;
+            this.skinsButton = skinsButton;
+            this.optionsButton = optionsButton;
+
+            this.upgradesList = upgradesList;
+            this.bonusList = bonusList;
+            this.skinsList = skinsList;
+            this.optionsList = optionsList;
+
             /*###*/
 
             /* Private Variables */
-            var timeSpent = 0
+            var timeSpent = 0;
             var timeBeforeCPSReset = 0;
             var tmpBrowniePerClick = 1;
+            let tmpListsPointer;
             
+            this.upgradesList = upgradesList;
+            this.bonusList = bonusList;
+            this.skinsList = skinsList;
+            this.optionsList = optionsList;
             this.timeSpent = timeSpent;
             this.timeBeforeCPSReset = timeBeforeCPSReset;
             this.tmpBrowniePerClick = tmpBrowniePerClick;
+            this.localStorage = localStorage;
+            this.tmpListsPointer = tmpListsPointer;
+
             /*###*/
 
     /*######*/
 
         let that = this
         that.Scoring = that.Scoring.bind(that);
-        that.AutoClick = that.AutoClick.bind(that)
-        that.Multipling = that.Multipling.bind(that)
-        that.MenuButton = that.MenuButton.bind(that)
-        that.GetUserBrowniePerSec = that.GetUserBrowniePerSec.bind(that)
-        that.UserClicksHandler = that.UserClicksHandler.bind(that)
-        that.UserReset = that.UserReset.bind(that)
-        that.BrowniePerClick = that.BrowniePerClick.bind(that)
+        that.AutoClick = that.AutoClick.bind(that);
+        that.Multipling = that.Multipling.bind(that);
+        that.MenuButton = that.MenuButton.bind(that);
+        that.GetUserBrowniePerSec = that.GetUserBrowniePerSec.bind(that);
+        that.UserClicksHandler = that.UserClicksHandler.bind(that);
+        that.UserReset = that.UserReset.bind(that);
+        that.BrowniePerClick = that.BrowniePerClick.bind(that);
 
-        that.brownie.addEventListener("click",that.Scoring)
-        that.brownie.addEventListener("click",that.UserClicksHandler)
+        that.brownie.addEventListener("click",that.Scoring);
+        that.brownie.addEventListener("click",that.UserClicksHandler);
 
-        that.autoClickButton.addEventListener("click",that.AutoClick)
+        that.autoClickButton.addEventListener("click",that.AutoClick);
         
-        that.multipling.addEventListener("click",that.Multipling)
-        that.multipling.addEventListener("click",that.BrowniePerClick)
+        that.multipling.addEventListener("click",that.Multipling);
+        that.multipling.addEventListener("click",that.BrowniePerClick);
 
-        that.openMenuBtn.addEventListener("click",that.MenuButton)
+        that.openMenuBtn.addEventListener("click",that.MenuButton);
         
-        that.clickSpeed.addEventListener("click",that.GetUserBrowniePerSec)
+        that.clickSpeed.addEventListener("click",that.GetUserBrowniePerSec);
         
-        that.resetButton.addEventListener("click",that.UserReset)
+        that.resetButton.addEventListener("click",that.UserReset);
+
+        that.upgradesButton.addEventListener("click",that.UpgradeButton);
+
+        that.bonusButton.addEventListener("click",that.BonusButton);
+
+        that.skinsButton.addEventListener("click",that.SkinsButton);
+
+        that.optionsButton.addEventListener("click",that.OptionsButton);
 
         
-        that.clickSpeed.innerHTML = setInterval(this.GetUserBrowniePerSec,1000)
+        that.clickSpeed.innerHTML = setInterval(this.GetUserBrowniePerSec,1000);
         that.scoreDisplay.innerHTML  = this.score;
         that.multiplingDisplay.innerHTML = this.multiplier;
         that.browniesClickedSessionDisplay.innerHTML = this.usrClickThisSession;
         that.resetDisplay.innerHTML = this.amountOfReset;
 
-        that.browniesPerClickDisplay.innerHTML = this.tmpBrowniePerClick
+        that.browniesPerClickDisplay.innerHTML = this.tmpBrowniePerClick;
+
+        that.upgradesList.style.height = '0px';
+        that.bonusList.style.height = '0px';
+        that.skinsList.style.height = '0px';
+        that.optionsList.style.height = '0px';
+        openMenuBtn.style.border = 'solid 1px var(--textReverse)'
+
+        that.tmpListsPointers = this.upgradesList;
 
         console.log("Event Handler Started");
     };
 
     MenuButton = () => {
-        if (this.subMenu.style.visibility === 'visible') {
-            this.subMenu.style.animation = '0.3s fadeOut'
-            this.subMenu.style.visibility = 'hidden'            
+        console.log('Menu')
+        if (this.upgradesList.style.height == '0px' &&
+            this.bonusList.style.height == '0px' &&
+            this.skinsList.style.height == '0px' &&
+            this.optionsList.style.height == '0px'){
+                this.OpenSubMenu()
+            } 
+            else {
+                this.CloseSubMenu()
+            }
         }
-        else {
-            this.subMenu.style.visibility = 'visible'
-            this.subMenu.style.animation = '0.3s fadeIn'
-        } 
-    }
 
     Scoring = () => {
         try {
@@ -208,6 +262,80 @@ export default class EventHandler extends Init{
     BrowniePerClick = () => {
         this.tmpBrowniePerClick = 1*this.multiplier*this.bonus
         this.browniesPerClickDisplay.innerHTML = this.tmpBrowniePerClick
+    }
+
+    /*_____________*/
+    UpgradeButton = () => {
+        console.log('UpgradeButton')
+        if (this.upgradesList.style.height == '0px'){
+            this.CloseSubMenu()
+            this.tmpListsPointers = this.upgradesList
+            this.OpenSubMenu()
+        } else {
+            this.CloseSubMenu()
+        }
+    }
+
+    BonusButton = () => {
+        console.log('BonusButton')
+        if (this.bonusList.style.height == '0px'){
+            this.CloseSubMenu()
+            this.tmpListsPointers = this.bonusList
+            this.OpenSubMenu()
+        } else {
+            this.CloseSubMenu()
+        }
+    }
+
+    SkinsButton = () => {
+        console.log('SkinsButton')
+        if (this.skinsList.style.height == '0px'){
+            this.CloseSubMenu()
+            this.tmpListsPointers = this.skinsList
+            this.OpenSubMenu()
+        } else {
+            this.CloseSubMenu()
+        }
+    }
+
+    OptionsButton = () => {
+        console.log('OptionsButton')
+        if (this.optionsList.style.height == '0px'){
+            this.CloseSubMenu()
+            this.tmpListsPointers = this.optionsList
+            this.OpenSubMenu()
+        } else {
+            this.CloseSubMenu()
+        }
+    }
+    /*_____________*/
+
+    OpenSubMenu = () => {
+        console.log('Open Sub Menu')        
+        if (this.tmpListsPointers.style.height == '0px') {
+            if (window.innerWidth < '1200'){
+                this.tmpListsPointers.style.animation = '0.3s deploySubmenu'
+                this.tmpListsPointers.style.height = '16.55rem'
+            } else {
+                this.tmpListsPointers.style.animation = ' 0.3s deploySubmenuDesktop'
+                this.tmpListsPointers.style.height = '100%'
+            }
+            this.openMenuBtn.style.border = 'solid 1px var(--text)'
+        }
+    }
+
+    CloseSubMenu(){
+        console.log('Close Sub Menu')
+        if (this.tmpListsPointers === null){
+            return
+        }
+        if (window.innerWidth < '1200'){
+            this.tmpListsPointers.style.animation = '0.3s retractSubmenu'
+        } else {
+            this.tmpListsPointers.style.animation = '0.3s retractSubmenuDesktop'
+        }
+        this.tmpListsPointers.style.height = '0px'
+        this.openMenuBtn.style.border = 'solid 1px var(--textReverse)'
     }
 
     /* Get a specific value from this object

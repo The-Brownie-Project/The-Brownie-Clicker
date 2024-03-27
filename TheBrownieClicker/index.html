@@ -81,32 +81,32 @@
                         <div id="subMenu">
                             <button id="menuButton"><span></span></button>
                             <ul id="upgradesList">
-                                <li><button id="autoClick">AC</button><div>Auto Click<span>0</span></div></li>
-                                <li><button id="multiplying">Mult.</button><div>Multiplicator<span>0</span></div></li>
-                                <li><button id="resetButton">U3</button><div><span>0</span></div></li>
-                                <li><button id="buttonUpgrade4">U4</button><div><span>0</span></div></li>
-                                <li><button id="buttonUpgrade5">U5</button><div><span>0</span></div></li>
+
+                                <li><button id="autoClick">AC</button> Auto Click - <span>0</span></li>
+                                <li><button id="multiplying">Mult.</button> Multiplicator - <span>0</span></li>
+                                <li><button id="resetButton">U3</button><span>0</span></li>
+                                <li><button id="buttonUpgrade4">U4</button><span>0</span></li>
+                                <li><button id="buttonUpgrade5">U5</button><span>0</span></li>
                             </ul>
                             <ul id="bonusList">
-                                <li><button id="buttonBonus1">B1</button><div><span>0</span></div></li>
-                                <li><button id="buttonBonus2">B2</button><div><span>0</span></div></li>
-                                <li><button id="buttonBonus3">B3</button><div><span>0</span></div></li>
-                                <li><button id="buttonBonus4">B4</button><div><span>0</span></div></li>
-                                <li><button id="buttonBonus5">B5</button><div><span>0</span></div></li>
+                                <li><button id="buttonBonus1">B1</button><span>0</span></li>
+                                <li><button id="buttonBonus2">B2</button><span>0</span></li>
+                                <li><button id="buttonBonus3">B3</button><span>0</span></li>
+                                <li><button id="buttonBonus4">B4</button><span>0</span></li>
+                                <li><button id="buttonBonus5">B5</button><span>0</span></li>
                             </ul>
                             <ul id="skinsList">
-                                <li><button id="buttonSkin1">ON</button><div>Kraken Kitty<span>0</span></div></li>
-                                <li><button id="buttonSkin2">OFF</button><div>Hunting Horn<span>0</span></div></li>
-                                <li><button id="buttonSkin3">OFF</button><div>Invader<span>0</span></div></li>
-                                <li><button id="buttonSkin4">OFF</button><div>Skylands<span>0</span></div></li>
+                                <li><button id="buttonSkin1">S1</button><span>0</span></li>
+                                <li><button id="buttonSkin2">S2</button><span>0</span></li>
+                                <li><button id="buttonSkin3">S3</button><span>0</span></li>
+                                <li><button id="buttonSkin4">S4</button><span>0</span></li>
                             </ul>
                             <ul id="optionsList">
                                 <li><button id="soundToggle">Sound</button></li>
-                                <li><button id="languageToggle">Language</button></li>
                                 <li><button id="themeToggle">Theme</button></li>
-                                <li><button id="rtxToggle">RTX <span id="rtxStatus">OFF</span></button></li>
-                                <li><button id="successListButton">Success</button></li>
-                                <li><button id="successPopupToggle">Popups</button></li>
+                                <li><button id="languageToggle">Language</button></li>
+                                <li><button id="successToggle">Success</button></li>
+
                                 <li><button id="gitHubRepos">GitHub</button></li>
                             </ul>
                         </div>
@@ -259,104 +259,6 @@
                     window.open('https://github.com/The-Brownie-Project/The-Brownie-Clicker');
                 })
 
-                const subMenu = document.getElementById('subMenu');
-                const openMenuBtn = document.getElementById('menuButton');
-                
-                const upgradesButton = document.getElementById('upgradesButton');
-                const bonusButton = document.getElementById('bonusButton');
-                const skinsButton = document.getElementById('skinsButton');
-                const optionsButton = document.getElementById('optionsButton');
-
-                upgradesList.style.height = '0px'
-                bonusList.style.height = '0px'
-                skinsList.style.height = '0px'
-                optionsList.style.height = '0px'
-                
-                openMenuBtn.style.border = 'solid 1px var(--textReverse)'
-
-                openMenuBtn.addEventListener('click', () => {
-                    if (upgradesList.style.height === '0px' &&
-                        bonusList.style.height === '0px' &&
-                        skinsList.style.height === '0px' &&
-                        optionsList.style.height === '0px' &&
-                        localStorage.getItem('subMenuMode') !== null){
-                        openSubMenu()
-                    } else {
-                        closeSubMenu()
-                    }
-                })
-
-                upgradesButton.addEventListener('click', () => {
-                    if (upgradesList.style.height === '0px'){
-                        closeSubMenu()
-                        localStorage.setItem('subMenuMode', 'upgradesList')
-                        openSubMenu()
-                    } else {
-                        closeSubMenu()
-                    }
-                })
-
-                bonusButton.addEventListener('click', () => {
-                    if (bonusList.style.height === '0px'){
-                        closeSubMenu()
-                        localStorage.setItem('subMenuMode', 'bonusList')
-                        openSubMenu()
-                    } else {
-                        closeSubMenu()
-                    }
-                })
-
-                skinsButton.addEventListener('click', () => {
-                    if (skinsList.style.height === '0px'){
-                        closeSubMenu()
-                        localStorage.setItem('subMenuMode', 'skinsList')
-                        openSubMenu()
-                    } else {
-                        closeSubMenu()
-                    }
-                })
-
-                optionsButton.addEventListener('click', () => {
-                    if (optionsList.style.height === '0px'){
-                        closeSubMenu()
-                        localStorage.setItem('subMenuMode', 'optionsList')
-                        openSubMenu()
-                    } else {
-                        closeSubMenu()
-                    }
-                })
-
-                function openSubMenu(){
-                    subMenuMode = localStorage.getItem('subMenuMode')
-                    menuToOpen = document.getElementById(subMenuMode)
-                    
-                    if (menuToOpen.style.height === '0px') {
-                        if (window.innerWidth < '1200'){
-                            menuToOpen.style.animation = '0.3s deploySubmenu'
-                            menuToOpen.style.height = '16.55rem'
-                        } else {
-                            menuToOpen.style.animation = ' 0.2s deploySubmenuDesktop'
-                            menuToOpen.style.height = '100%'
-                        }
-                        openMenuBtn.style.border = 'solid 1px var(--text)'
-                    }
-                }
-
-                function closeSubMenu(){
-                    subMenuMode = localStorage.getItem('subMenuMode')
-                    menuToClose = document.getElementById(subMenuMode)
-                    if (menuToClose === null){
-                        return
-                    }
-                    
-                    if (window.innerWidth < '1200'){
-                        menuToClose.style.animation = '0.3s retractSubmenu'
-                    } else {
-                        menuToClose.style.animation = '0.2s retractSubmenuDesktop'
-                    }
-                    menuToClose.style.height = '0px'
-                    openMenuBtn.style.border = 'solid 1px var(--textReverse)'
-                }
             </script>
 
         </main>

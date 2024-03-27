@@ -22,23 +22,41 @@ var EHandle = new EventHandler(
   vari.autoClickButton,
   vari.multiplier,
   vari.bonus,
+
   vari.priceAC,
   vari.numofAC,
   vari.ACHandle,
+
   vari.multipling,
   vari.pricMul,
   vari.multiplyingDisplay,
+
   vari.openMenuBtn,
   vari.bottomMenu, 
   vari.subMenu,
+
   vari.userBrowniePerSec,
   vari.clickSpeed,
+
   vari.browniesClickedSessionDisplay,
   vari.usrClickThisSession,
+
   vari.amountOfReset,
   vari.resetButton,
   vari.resetDisplay,
-  vari.browniesPerClickDisplay
+
+  vari.browniesPerClickDisplay,
+
+  vari.upgradesButton,
+  vari.bonusButton,
+  vari.skinsButton,
+  vari.optionsButton,
+
+  vari.upgradesList,
+  vari.bonusList,
+  vari.skinsList,
+  vari.optionsList
+
   );
 
 var DefFunc = new DefaultFunction(
@@ -48,7 +66,6 @@ var DefFunc = new DefaultFunction(
   vari.Timelost,
   vari.timeLostDisplay
   )
-
 
 EHandle
 DefFunc

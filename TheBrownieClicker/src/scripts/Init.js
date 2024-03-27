@@ -24,7 +24,7 @@ export default class Init{
         browniesClickedSessionDisplay,
         resetButton,
         resetDisplay,
-        browniesPerClickDisplay
+        browniesPerClickDisplay,
         ){
         this.score = score;
         this.brownie = brownie;

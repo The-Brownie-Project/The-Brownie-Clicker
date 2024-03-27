@@ -25,7 +25,7 @@
 }
 
 * button{
-    color: var(--textReverse);
+    color: var(--bottomMenuButtonsTextColor);
 }
 
 body{
@@ -143,10 +143,6 @@ ul{
     position: absolute;
 }
 
-#bottomMenu button:hover{
-    cursor: pointer;
-}
-
 #menuButton{
     background: var(--bottomMenuBackground);
     border-bottom: none !important;
@@ -200,6 +196,10 @@ ul{
     z-index: -1;
 }
 
+#subMenu>ul li{
+    transition: ease-in-out 0.1s;
+}
+
 #subMenu>ul li:not(:last-child){
     margin-bottom: 2rem;
 }
@@ -212,27 +212,112 @@ ul{
     margin-bottom: 1rem;
 }
 
-#subMenu>ul li>span:after{
-    content: ' Brownies';
-}
-
 #subMenu>ul li>button{
-    background-color: var(--background);
+    background: var(--background);
+    color: var(--text);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
     font-size: 15px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 16px 16px;
-    margin-left: 10px;
 }
 
-#subMenu>p{
-    justify-content: center;
+#subMenu>ul li>button:active{
+    transform: scale(0.95);
+}
+
+/*==============Specific submenu==============*/
+
+#upgradesList>li,
+#bonusList>li,
+#skinsList>li{
+    box-shadow: 2px 2px 5px var(--bottomMenuButtonsTextColor);
+    display: flex;
+    align-items: center;
+}
+
+#upgradesList>li>button,
+#bonusList>li>button,
+#skinsList>li>button{
+    margin-left: 10px;
+    width: 8vh;
+    height: 75%;
+}
+
+#upgradesList>li>div,
+#bonusList>li>div,
+#skinsList>li>div{
+    color: var(--textReverse);
     display: flex;
     flex-direction: column;
+    font-weight: bold;
 }
 
-#successList>.mainList{
-    display: none;
+#upgradesList>li span,
+#bonusList>li span,
+#skinsList>li span{
+    color: var(--bottomMenuButtonsTextColor);
+    font-weight: 100;
+}
+
+#upgradesList>li span:after,
+#bonusList>li span:after,
+#skinsList>li span:after{
+    content: " Brownies";
+}
+
+#upgradesList>li,
+#bonusList>li{
+    width: auto;
+    height: 10vh;
+}
+
+#upgradesList>li>button,
+#bonusList>li>button{
+    margin-right: 20px;
+}
+
+#upgradesList>li span,
+#bonusList>li span{
+    font-size: 110%;
+}
+
+ul#skinsList,
+ul#optionsList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#skinsList>li:nth-child(2),
+#optionsList>li:nth-child(2){
+    margin-top: 1rem;
+}
+
+#skinsList>li{
+    width: 45%;
+    height: 10vh;
+    margin-right: 5px;
+}
+
+#skinsList>li>button{
+    margin-right: 10px;
+}
+
+#skinsList>li span{
+    font-size: 90%;
+}
+
+#optionsList>li{
+    text-align: center;
+    width: 45vw;
+    height: 7vh;
+    margin: 0 5px;
+}
+
+#optionsList>li button{
+    width: 75%;
+    height: 100%;
 }
 
 /*==============Mobile menu==============*/
@@ -251,7 +336,6 @@ ul{
 
 #tabMenu li>button{
     transition: 0.3 ease-in-out;
-    color: var(--bottomMenuButtonsTextColor);
     box-shadow: var(--boxHighlightNone);
     z-index: 2;
     font-weight: bold;
@@ -337,12 +421,9 @@ ul{
 /*==============Desktop rules==============*/
 
 
-#successList{
-    visibility: collapse;
-}
-
 #fakeAdd,
-#desktopSecondColumn{
+#desktopSecondColumn,
+#successList{
     display: none;
 }
 
@@ -402,6 +483,55 @@ ul{
         width: 30vw;
         padding-bottom: 0;
         margin-bottom: 0;
+    }
+
+
+    #desktopOptions{
+        position: absolute;
+        right: 32vw;
+        bottom: 0;
+    }
+
+    #desktopOptions button{
+        background: var(--background);
+        color: var(--text);
+        transition: ease-in-out 0.2s;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 50px;
+        list-style-type: none;
+    }
+
+    #desktopOptions ul{
+        background: var(--desktopMenuBackground);
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 70px;
+        padding: 5px 20px;
+        margin-top: 0;
+        margin-left: 0;
+        transition: max-height 0.5s ease-out;
+    }
+
+    #desktopOptions ul>li{
+        text-align: center;
+        width: 60px;
+    }
+
+    #desktopOptions ul button{
+        border: none;
+        height: 65px;
+        width: 65px;
+    }
+
+    #desktopOptions ul button:hover{
+        cursor: pointer;
+    }
+
+    #desktopOptions ul button:active{
+        transform: scale(0.95);
     }
 
 
@@ -480,7 +610,9 @@ ul{
     }
 
     #successList>.mainList{
-        display: block;
+        display: flex;
+        gap: 20px;
+        flex-direction: column-reverse;
         width: 90%;
         height: 20vh;
         padding-left: 0;
@@ -489,21 +621,17 @@ ul{
     }
 
     #successList>.mainList>li{
-        color: var(--textReverse);
         box-shadow: 10px 2px 5px var(--bottomMenuButtonsTextColor);
         display: flex;
         align-items: center;
+        padding: 5px 0;
         width: auto;
         height: 5vh;
     }
 
-    #successList>.mainList>li:not(:last-child){
-        margin-bottom: 20px;
-    }
-
     #successList>.mainList>li>img{
         width: 5vh;
-        height: 100%;
+        height: 5vh;
         margin-right: 20px;
     }
 
@@ -514,6 +642,7 @@ ul{
 
     #successList>.mainList>li strong{
         color: var(--textReverse);
+/*        text-transform: uppercase;*/
         font-size: 110%;
     }
 

@@ -34,14 +34,12 @@
 }
 
 * button{
-
     background: var(--buttonBackground);
 }
 
 body{
     background: var(--background);
     background-image: var(--textureMainWood);
-
 }
 
 h1{
@@ -63,7 +61,6 @@ ul{
 
 #brownieTitle {
     background-color: rgba(85, 85, 85, 0.7);
-
     border-radius: 50px;
 }
 
@@ -106,7 +103,6 @@ ul{
 }
 
 #statsList{
-
     background: var(--statsBackground);
     background-image: var(--textureStatsWood);
     border-top: var(--templateBorder);
@@ -245,7 +241,6 @@ ul{
 #upgradesList>li,
 #bonusList>li,
 #skinsList>li{
-
     box-shadow: 2px 2px 5px var(--tabMenuButtonsTextColor);
     display: flex;
     align-items: center;
@@ -271,7 +266,6 @@ ul{
 #upgradesList>li span,
 #bonusList>li span,
 #skinsList>li span{
-
     color: var(--tabMenuButtonsTextColor);
     font-weight: 100;
 }
@@ -351,7 +345,7 @@ ul#optionsList{
 }
 
 #tabMenu li>button{
-
+    color: var(--tabMenuButtonsTextColor);
     transition: 0.3 ease-in-out;
     box-shadow: var(--boxHighlightNone);
     z-index: 2;
@@ -448,7 +442,6 @@ ul#optionsList{
 @media screen and (min-width: 1200px){
 
     body{
-
         background: var(--background);
     }
     main{
@@ -470,7 +463,6 @@ ul#optionsList{
 
     #desktopFirstColumn,
     #desktopThirdColumn{
-
         background-image: var(--textureMainWood);
         flex: 3;
         display: flex;
@@ -509,6 +501,7 @@ ul#optionsList{
         right: 2vw;
         bottom: 0;
     }
+
     #desktopOptions ul{
         background: var(--desktopMenuBackground);
         border-radius: 50px;
@@ -599,6 +592,7 @@ ul#optionsList{
     #tabMenu li:last-child{
         display: none;
     }
+
     #successList{
         visibility: visible;
         background: var(--desktopMenuBackground);
@@ -649,7 +643,6 @@ ul#optionsList{
 
     #successList>.mainList>li strong{
         color: var(--textReverse);
-/*        text-transform: uppercase;*/
         font-size: 110%;
     }
 

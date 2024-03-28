@@ -10,42 +10,62 @@ export default class Init{
         autoClickButton,
         multiplier,
         bonus,
+        
         priceAC,
         numofAC,
         ACHandle,
-        multipling,
+        
+        multiplying,
         priceMul,
         multiplingDisplay,
+        
         openMenuBtn,
         bottomMenu, 
         subMenu,
+        
         userBrowniePerSec,
         clickSpeed,
+        
         browniesClickedSessionDisplay,
+        
         resetButton,
         resetDisplay,
         browniesPerClickDisplay,
+
+        autoClickPrice,
+        multiplyingPrice,
+        resetButtonPrice
         ){
-        this.score = score;
         this.brownie = brownie;
         this.scoreDisplay = scoreDisplay;
+        this.score = score;
         this.autoClickButton = autoClickButton;
-        this.priceAC = priceAC;
         this.multiplier = multiplier;
         this.bonus = bonus;
+        
+        this.priceAC = priceAC;
         this.numofAC = numofAC;
         this.ACHandle = ACHandle;
-        this.multipling = multipling;
+        
+        this.multiplying = multiplying;
         this.priceMul = priceMul;
         this.multiplingDisplay = multiplingDisplay;
+        
         this.openMenuBtn = openMenuBtn;
         this.bottomMenu = bottomMenu;
         this.subMenu = subMenu;
+        
         this.userBrowniePerSec = userBrowniePerSec;
         this.clickSpeed = clickSpeed;
+        
         this.browniesClickedSessionDisplay = browniesClickedSessionDisplay;
+        
         this.resetButton = resetButton;
         this.resetDisplay = resetDisplay;
         this.browniesPerClickDisplay = browniesPerClickDisplay;
+
+        this.autoClickPrice = autoClickPrice;
+        this.multiplyingPrice = multiplyingPrice;
+        this.resetButtonPrice = resetButtonPrice;
     }
 };

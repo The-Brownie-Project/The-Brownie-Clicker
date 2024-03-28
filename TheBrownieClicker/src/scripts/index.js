@@ -27,7 +27,7 @@ var EHandle = new EventHandler(
   vari.numofAC,
   vari.ACHandle,
 
-  vari.multipling,
+  vari.multiplying,
   vari.pricMul,
   vari.multiplyingDisplay,
 
@@ -55,7 +55,11 @@ var EHandle = new EventHandler(
   vari.upgradesList,
   vari.bonusList,
   vari.skinsList,
-  vari.optionsList
+  vari.optionsList,
+
+  vari.autoClickPrice,
+  vari.multiplyingPrice,
+  vari.resetButtonPrice
 
   );
 

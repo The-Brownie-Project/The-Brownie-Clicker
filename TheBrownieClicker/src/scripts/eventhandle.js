@@ -16,7 +16,7 @@ export default class EventHandler extends Init{
         numofAC,
         ACHandle,
         
-        multipling,
+        multiplying,
         priceMul,
         multiplingDisplay,
         
@@ -44,7 +44,11 @@ export default class EventHandler extends Init{
         upgradesList,
         bonusList,
         skinsList,
-        optionsList
+        optionsList,
+
+        autoClickPrice,
+        multiplyingPrice,
+        resetButtonPrice
         )
         {
         /* Init method variables */    
@@ -55,21 +59,31 @@ export default class EventHandler extends Init{
             autoClickButton,
             multiplier,
             bonus,
+
             priceAC,
             numofAC,
             ACHandle,
-            multipling,
+            
+            multiplying,
             priceMul,
             multiplingDisplay,
+            
             openMenuBtn,
             bottomMenu, 
             subMenu,
+            
             userBrowniePerSec,
             clickSpeed,
+            
             browniesClickedSessionDisplay,
+            
             resetButton,
             resetDisplay,
             browniesPerClickDisplay,
+
+            autoClickPrice,
+            multiplyingPrice,
+            resetButtonPrice
             );
             /*###*/
 
@@ -92,18 +106,18 @@ export default class EventHandler extends Init{
             /* Private Variables */
             var timeSpent = 0;
             var timeBeforeCPSReset = 0;
-            var tmpBrowniePerClick = 1;
+            let tmpBrowniePerClick = 1;
             let tmpListsPointer;
+            let tmpPriceUpdatePointer;
+            let tmpPricePointer;
             
-            this.upgradesList = upgradesList;
-            this.bonusList = bonusList;
-            this.skinsList = skinsList;
-            this.optionsList = optionsList;
             this.timeSpent = timeSpent;
             this.timeBeforeCPSReset = timeBeforeCPSReset;
             this.tmpBrowniePerClick = tmpBrowniePerClick;
             this.localStorage = localStorage;
             this.tmpListsPointer = tmpListsPointer;
+            this.tmpPriceUpdatePointer = tmpPriceUpdatePointer;
+            this.tmpPricePointer = tmpPricePointer;
 
             /*###*/
 
@@ -112,7 +126,7 @@ export default class EventHandler extends Init{
         let that = this
         that.Scoring = that.Scoring.bind(that);
         that.AutoClick = that.AutoClick.bind(that);
-        that.Multipling = that.Multipling.bind(that);
+        that.Multiplying = that.Multiplying.bind(that);
         that.MenuButton = that.MenuButton.bind(that);
         that.GetUserBrowniePerSec = that.GetUserBrowniePerSec.bind(that);
         that.UserClicksHandler = that.UserClicksHandler.bind(that);
@@ -124,8 +138,8 @@ export default class EventHandler extends Init{
 
         that.autoClickButton.addEventListener("click",that.AutoClick);
         
-        that.multipling.addEventListener("click",that.Multipling);
-        that.multipling.addEventListener("click",that.BrowniePerClick);
+        that.multiplying.addEventListener("click",that.Multiplying);
+        that.multiplying.addEventListener("click",that.BrowniePerClick);
 
         that.openMenuBtn.addEventListener("click",that.MenuButton);
         
@@ -141,12 +155,28 @@ export default class EventHandler extends Init{
 
         that.optionsButton.addEventListener("click",that.OptionsButton);
 
-        
+        this.InitialValues();
+        openMenuBtn.style.border = 'solid 1px var(--textReverse)'
+
+        console.log("Event Handler Started");
+    };
+
+/*### INIT OF ALL NECESSARY VALUES ###*/
+    InitialValues = () => {
+        let that = this;
+
         that.clickSpeed.innerHTML = setInterval(this.GetUserBrowniePerSec,1000);
+        
         that.scoreDisplay.innerHTML  = this.score;
+        
         that.multiplingDisplay.innerHTML = this.multiplier;
+        
         that.browniesClickedSessionDisplay.innerHTML = this.usrClickThisSession;
+        
         that.resetDisplay.innerHTML = this.amountOfReset;
+        
+        that.multiplyingPrice.innerHTML = this.priceMul;
+        that.autoClickPrice.innerHTML = this.priceAC;
 
         that.browniesPerClickDisplay.innerHTML = this.tmpBrowniePerClick;
 
@@ -154,12 +184,11 @@ export default class EventHandler extends Init{
         that.bonusList.style.height = '0px';
         that.skinsList.style.height = '0px';
         that.optionsList.style.height = '0px';
-        openMenuBtn.style.border = 'solid 1px var(--textReverse)'
 
         that.tmpListsPointers = this.upgradesList;
+    }
+/*######*/
 
-        console.log("Event Handler Started");
-    };
 
     MenuButton = () => {
         console.log('Menu')
@@ -192,15 +221,19 @@ export default class EventHandler extends Init{
             }finally {
                 this.score = this.score - this.priceAC;
                 this.priceAC = this.priceAC*2;
+                this.tmpPricePointer = this.priceAC;
+                this.tmpPriceUpdatePointer = this.autoClickPrice;
+                this.PriceUpdate();
                 console.log("next AutoClick upgrade: "+this.priceAC);
                 this.ACHandle = setInterval(this.Scoring,Math.floor(1000/(this.numofAC+1))); 
                 this.numofAC = this.numofAC+1; 
+                this.scoreDisplay.innerHTML = this.score;
                 console.log("AutoClick is ON");
             }
         }
     }
 
-    Multipling = () => {
+    Multiplying = () => {
         try {   
             if (this.score < this.priceMul) {
                 console.log("not enough to buy multiplying");
@@ -209,9 +242,13 @@ export default class EventHandler extends Init{
             if (this.score >= this.priceMul){
                 this.score = this.score - this.priceMul;
                 this.priceMul = Math.floor(this.priceMul*(Math.log(this.multiplier*10)*1.5));
+                this.tmpPricePointer = this.priceMul;
+                this.tmpPriceUpdatePointer = this.multiplyingPrice;
+                this.PriceUpdate();
                 console.log("next Multiplier upgrade: "+this.priceMul);
                 this.multiplier = this.multiplier+1;
                 this.multiplingDisplay.innerHTML = this.multiplier;
+                this.scoreDisplay.innerHTML = this.score;
                 console.log("added to mutlipling");
             }
         }
@@ -262,6 +299,10 @@ export default class EventHandler extends Init{
     BrowniePerClick = () => {
         this.tmpBrowniePerClick = 1*this.multiplier*this.bonus
         this.browniesPerClickDisplay.innerHTML = this.tmpBrowniePerClick
+    }
+
+    PriceUpdate = () => {
+        this.tmpPriceUpdatePointer.innerHTML = this.tmpPricePointer
     }
 
     /*_____________*/

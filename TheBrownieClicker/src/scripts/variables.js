@@ -49,12 +49,13 @@ export var autoClickButton = document.querySelector("#autoClick");
 export var clickSpeed      = document.querySelector("#speedDisplay");
 export var resetDisplay    = document.querySelector("#resetDisplay");
 
-export var multipling      = document.querySelector("#multiplying");
+export var multiplying     = document.querySelector("#multiplying");
 export var clickableBonus  = document.querySelector("#clickablebonus");
 export var resetButton     = document.querySelector('#resetButton');
 export var openMenuBtn     = document.querySelector('#menuButton');
 export var bottomMenu      = document.querySelector('#bottomMenu');
 export var subMenu         = document.querySelector('#subMenu');
+
 
 export var upgradesButton    = document.querySelector('#upgradesButton');
 export var bonusButton       = document.querySelector('#bonusButton');
@@ -65,6 +66,10 @@ export var upgradesList      = document.querySelector('#upgradesList')
 export var bonusList         = document.querySelector('#bonusList');
 export var skinsList         = document.querySelector('#skinsList');
 export var optionsList       = document.querySelector('#optionsList');
+
+export var autoClickPrice    = document.querySelector('#autoClickPrice');
+export var multiplyingPrice  = document.querySelector('#multiplyingPrice');
+export var resetButtonPrice  = document.querySelector('#resetButtonPrice');
 
 
 export var browniesPerClickDisplay       = document.querySelector('#browniesPerClickDisplay');
